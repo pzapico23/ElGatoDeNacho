@@ -1,0 +1,23 @@
+using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
+
+public class PlayerInput : MonoBehaviour
+{
+    [SerializeField]private PlayerMovement playerMovement;
+
+    public void OnMove(CallbackContext ctx)
+    {
+        if (ctx.performed)
+            playerMovement.OnMove(ctx.ReadValue<Vector2>());
+        else
+            playerMovement.OnMove(Vector2.zero);
+    }
+    public void onJump(CallbackContext ctx)
+    {
+        if (ctx.performed)
+            playerMovement.OnJump(ctx.ReadValue<float>());
+        else
+            playerMovement.OnJump(0);
+    }
+
+}
