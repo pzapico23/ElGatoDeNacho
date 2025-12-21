@@ -12,21 +12,27 @@ public class FollowPlayer : MonoBehaviour
 
     private Vector3 lastPosition;
 
-    void Start()
-    {
-        
-    }
+    private bool isFollowing = true;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 targetPosition = player.position + offset;
-        if(lastPosition.x < targetPosition.x)
+        if (isFollowing)
         {
-            targetPosition.z = transform.position.z;
-            Vector3 vel = Vector3.zero;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref vel, damping);
+            Vector3 targetPosition = player.position + offset;
+            if (lastPosition.x < targetPosition.x)
+            {
+                targetPosition.z = transform.position.z;
+                Vector3 vel = Vector3.zero;
+                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref vel, damping);
+            }
+            lastPosition = transform.position;
         }
-        lastPosition = transform.position;
     }
+
+    public void SetIsFollowing(bool isFollowing)
+    {
+        this.isFollowing = isFollowing;
+    }
+
 }
