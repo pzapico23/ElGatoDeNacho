@@ -20,9 +20,10 @@ public class FollowPlayer : MonoBehaviour
         if (isFollowing)
         {
             Vector3 targetPosition = player.position + offset;
-            if (lastPosition.x < targetPosition.x)
+            if (lastPosition.y < targetPosition.y)
             {
                 targetPosition.z = transform.position.z;
+                targetPosition.x = transform.position.x;
                 Vector3 vel = Vector3.zero;
                 transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref vel, damping);
             }
