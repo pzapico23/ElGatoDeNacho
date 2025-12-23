@@ -3,19 +3,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
     private float maxSpeed = 4;
     [SerializeField]
     private float initialSpeed = 2;
     [SerializeField]
-    private float jumpHeight = 10;
+    private float jumpHeight = 5;
     [SerializeField]
-    private float fallSpeed = 2;
-    private float currentSpeed;
-    private bool isJumping = false;
-    private bool isJumpHeld = false;
-    private bool isGrounded = false;
+    private float jumpSpeed = 8;
+    [SerializeField]
+    private float startingFallSpeed = 2;
+    [SerializeField]
+    private float maxFallSpeed = 6;
+    [SerializeField]
+    private float fallAcceleration = 6;
+    [SerializeField]
+    private float airTime = 0.3f;
     [SerializeField]
     private Vector2 groundCheckBox;
     [SerializeField]
@@ -24,52 +27,109 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     [SerializeField]
     private Rigidbody2D rb;
+    [SerializeField]
+    private Vector2 ceilingCheckBox;
+    [SerializeField]
+    private float ceilingCastDistance;
+    [SerializeField]
+    private float coyoteTime = 2;
+
+
+    private float currentSpeed;
+    private bool isJumping = false;
+    private bool isJumpHeld = false;
+    private bool isGrounded = false;
+    private float currentFloor = 0;
+    private float currentFallSpeed;
+    private bool isInAirTime = false;
+    private float currentAirTime = 0;
 
     private void Start()
     {
+        currentFallSpeed = startingFallSpeed;
         rb = GetComponent<Rigidbody2D>();
+        rb.simulated = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        checkGround();
+        CheckGround();
+        Fall();
         Move();
         Jump();
     }
 
+    private void Fall()
+    {
+        if (!isGrounded && !isJumping && !isInAirTime)
+        {
+            transform.position = transform.position + new Vector3(0, -currentFallSpeed * Time.deltaTime, 0);
+            currentFallSpeed = currentFallSpeed + fallAcceleration * Time.deltaTime * Time.deltaTime > maxFallSpeed ? currentFallSpeed + fallAcceleration * Time.deltaTime * Time.deltaTime : maxFallSpeed;
+            
+        }
+        if (isGrounded)
+        {
+            currentFallSpeed = startingFallSpeed;
+        }
+        if (isInAirTime)
+        {
+            if (IsHittingCeiling())
+            {
+                isInAirTime = false;
+                currentAirTime = 0;
+                return;
+            }
+            currentAirTime += Time.deltaTime;
+            if(currentAirTime > airTime)
+            {
+                isInAirTime = false;
+                currentAirTime = 0;
+            }
+        }
+    }
+
     internal void OnMove(Vector2 vector2)
     {
-        float auxSpeed = vector2.x * (maxSpeed - initialSpeed);
-        this.currentSpeed = auxSpeed != 0 ? initialSpeed + auxSpeed : 0;
+        this.currentSpeed = vector2.x != 0 ? vector2.x * initialSpeed : 0;
+        Debug.Log(currentSpeed);
     }
     internal void OnJump(float v)
     {
         isJumpHeld = v != 0;
-        Debug.Log(v);
     }
     private void Move()
     {
-        rb.linearVelocityX = currentSpeed;
+        transform.position = transform.position + new Vector3(currentSpeed * Time.deltaTime, 0, 0);
     }
     private void Jump()
     {
         if(isJumpHeld && isGrounded)
         {
-            rb.linearVelocityY = jumpHeight;
+            currentFloor = transform.position.y;
+            transform.position = transform.position + new Vector3(0, jumpSpeed * Time.deltaTime, 0);
             isJumping = true;
         }
         if (!isGrounded && isJumping)
         {
-            if(rb.linearVelocityY > 0)
+            if (IsHittingCeiling())
             {
-                rb.linearVelocityY = rb.linearVelocityY - fallSpeed * Time.deltaTime;
+                isJumping = false;
+                return;
+            }
+            if (transform.position.y - currentFloor < jumpHeight)
+            {
+                transform.position = transform.position + new Vector3(0, jumpSpeed * Time.deltaTime, 0);
+            }
+            else
+            {
+                isJumping = false;
+                isInAirTime = true;
             }
         }
 
     }
 
-
-    private void checkGround()
+    private void CheckGround()
     {
         
         if(Physics2D.BoxCast(transform.position, groundCheckBox, 0, -transform.up, castDistance,groundLayer))
@@ -82,9 +142,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private bool IsHittingCeiling()
+    {
+        return Physics2D.BoxCast(
+            transform.position,
+            ceilingCheckBox,
+            0,
+            transform.up,
+            ceilingCastDistance,
+            groundLayer
+        );
+    }
+
+
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, groundCheckBox);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + transform.up * ceilingCastDistance, ceilingCheckBox);
     }
 
     
