@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
@@ -14,20 +16,68 @@ namespace Player
         [SerializeField] private Sprite defaultSprite;
         [SerializeField] private Sprite ballSprite;
         [SerializeField] private FollowPlayer cameraFollow;
-
+        [SerializeField] private float shootForce = 1000;
+        [SerializeField] private float forceHoldGrow = 3;
+        [SerializeField] private float maxAimDistance = 10;
+        private Vector3 mousePosition;
+        private SpriteRenderer spriteRenderer;
+        private BoxCollider2D boxCollider2D;
+        private CircleCollider2D circleCollider2D;
+        private Rigidbody2D rigidbody2D;
+        public LineRenderer line;
+        private bool changingMode = false;
+        private Vector3 currentEnd;
+        private float currentHoldDistance = 0;
 
         void Start()
         {
-        
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            boxCollider2D = GetComponent<BoxCollider2D>();
+            circleCollider2D = GetComponent<CircleCollider2D>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+            mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mousePosition.z = 0;
+
+            if (changingMode)
+            {
+                line.enabled = true;
+                Vector3 end = transform.position + (mousePosition - transform.position).normalized * maxAimDistance;
+
+                currentHoldDistance = Mathf.Lerp(currentHoldDistance, maxAimDistance, Time.deltaTime * forceHoldGrow);
+
+                currentEnd = transform.position + (mousePosition - transform.position).normalized * currentHoldDistance;
+
+                line.SetPosition(0, transform.position);
+                line.SetPosition(1, currentEnd);
+            }
+            else
+            {
+                line.enabled = false;
+                currentEnd = transform.position;
+                currentHoldDistance = 0;
+            }
         }
 
-        internal void OnModeChange()
+        internal void OnModeChangeStart()
+        {
+            
+            if (!ballModeOn)
+            {
+                spriteRenderer.sprite = ballSprite;
+                boxCollider2D.enabled = false;
+                circleCollider2D.enabled = true;
+                playerMovement.enabled = false;
+                changingMode = true;
+            }
+
+        }
+
+        internal void OnModeChangeFinish()
         {
             ballModeOn = !ballModeOn;
             if (ballModeOn)
@@ -39,29 +89,33 @@ namespace Player
                 StopBallMode();
             }
 
-
         }
 
         private void StopBallMode()
         {
             CancelInvoke("IncreaseTimer");
+            rigidbody2D.linearVelocity = Vector2.zero;
+            rigidbody2D.angularVelocity = 0f;
             playerMovement.enabled = true;
-            GetComponent<SpriteRenderer>().sprite = defaultSprite;
-            GetComponent<BoxCollider2D>().enabled = true;
-            GetComponent<CircleCollider2D>().enabled = false;
+            spriteRenderer.sprite = defaultSprite;
+            boxCollider2D.enabled = true;
+            circleCollider2D.enabled = false;
+            rigidbody2D.simulated = false;
             cameraFollow.SetIsFollowing(true);
-
+            transform.rotation = Quaternion.identity;
         }
 
         private void StartBallMode()
         {
             currentBallTimer = 0;
-            playerMovement.enabled = false;
             InvokeRepeating("IncreaseTimer", 1f, 1f);
-            GetComponent<SpriteRenderer>().sprite = ballSprite;
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<CircleCollider2D>().enabled = true;
+            rigidbody2D.simulated = true;
             cameraFollow.SetIsFollowing(false);
+
+            Vector2 direction = (new Vector2(currentEnd.x, currentEnd.y) - rigidbody2D.position).normalized;
+            rigidbody2D.AddForce(direction * shootForce * (currentHoldDistance / maxAimDistance));
+            changingMode = false;
+
 
         }
 

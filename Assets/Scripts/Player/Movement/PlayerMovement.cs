@@ -99,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
     internal void OnMove(Vector2 vector2)
     {
         this.currentSpeed = vector2.x != 0 ? vector2.x * initialSpeed : 0;
-        Debug.Log(currentSpeed);
     }
     internal void OnJump(float v)
     {

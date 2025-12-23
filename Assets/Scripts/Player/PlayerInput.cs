@@ -26,7 +26,9 @@ namespace Player
         public void OnModeChange(CallbackContext ctx)
         {
             if (ctx.performed)
-                playerController.OnModeChange();
+                playerController.OnModeChangeStart();
+            if (ctx.canceled)
+                playerController.OnModeChangeFinish();
         }
 
     }
