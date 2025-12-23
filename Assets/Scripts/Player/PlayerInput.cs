@@ -1,30 +1,33 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class PlayerInput : MonoBehaviour
+namespace Player
 {
-    [SerializeField]private PlayerMovement playerMovement;
-    [SerializeField] private PlayerController playerController;
-
-    public void OnMove(CallbackContext ctx)
+    public class PlayerInput : MonoBehaviour
     {
-        if (ctx.performed)
-            playerMovement.OnMove(ctx.ReadValue<Vector2>());
-        else
-            playerMovement.OnMove(Vector2.zero);
-    }
-    public void OnJump(CallbackContext ctx)
-    {
-        if (ctx.performed)
-            playerMovement.OnJump(ctx.ReadValue<float>());
-        else
-            playerMovement.OnJump(0);
-    }
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerController playerController;
 
-    public void OnModeChange(CallbackContext ctx)
-    {
-        if (ctx.performed)
-            playerController.OnModeChange();
-    }
+        public void OnMove(CallbackContext ctx)
+        {
+            if (ctx.performed)
+                playerMovement.OnMove(ctx.ReadValue<Vector2>());
+            else
+                playerMovement.OnMove(Vector2.zero);
+        }
+        public void OnJump(CallbackContext ctx)
+        {
+            if (ctx.performed)
+                playerMovement.OnJump(ctx.ReadValue<float>());
+            else
+                playerMovement.OnJump(0);
+        }
 
+        public void OnModeChange(CallbackContext ctx)
+        {
+            if (ctx.performed)
+                playerController.OnModeChange();
+        }
+
+    }
 }

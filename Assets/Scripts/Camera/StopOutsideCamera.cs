@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class StopOutsideCamera : MonoBehaviour
@@ -32,5 +33,10 @@ public class StopOutsideCamera : MonoBehaviour
         );
 
         transform.position = pos;
+
+        if ( transform.position.y <= bottomLeft.y)
+        {
+            transform.GetComponent<Health>().Kill();
+        }
     }
 }
