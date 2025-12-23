@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     private float currentFallSpeed;
     private bool isInAirTime = false;
     private float currentAirTime = 0;
+    private float currentCoyoteTime = 0;
+    private bool wasGrounded = false;
 
     private void Start()
     {
@@ -54,9 +56,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         CheckGround();
+        Jump();
         Fall();
         Move();
-        Jump();
+       
+        wasGrounded = isGrounded;
     }
 
     private void Fall()
@@ -65,11 +69,15 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(0, -currentFallSpeed * Time.deltaTime, 0);
             currentFallSpeed = currentFallSpeed + fallAcceleration * Time.deltaTime * Time.deltaTime > maxFallSpeed ? currentFallSpeed + fallAcceleration * Time.deltaTime * Time.deltaTime : maxFallSpeed;
-            
         }
         if (isGrounded)
         {
             currentFallSpeed = startingFallSpeed;
+            currentCoyoteTime = 0;
+        }
+        if(wasGrounded && !isGrounded && !isJumping)
+        {
+            currentCoyoteTime += Time.deltaTime;
         }
         if (isInAirTime)
         {
@@ -103,11 +111,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        if(isJumpHeld && isGrounded)
+        if(isJumpHeld && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
         {
             currentFloor = transform.position.y;
             transform.position = transform.position + new Vector3(0, jumpSpeed * Time.deltaTime, 0);
             isJumping = true;
+            currentCoyoteTime = 0;
         }
         if (!isGrounded && isJumping)
         {

@@ -248,16 +248,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203ad47f21b70ca4d8cbd2a06826171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  maxSpeed: 10
+  maxSpeed: 4
   initialSpeed: 2
-  jumpHeight: 13
-  fallSpeed: 4
+  jumpHeight: 5
+  jumpSpeed: 8
+  startingFallSpeed: 2
+  maxFallSpeed: 6
+  fallAcceleration: 6
+  airTime: 0.3
   groundCheckBox: {x: 1, y: 0.25}
-  castDistance: 0.96
+  castDistance: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
-  rb: {fileID: 0}
+    m_Bits: 0
+  rb: {fileID: 9063258369876031840}
+  ceilingCheckBox: {x: 1, y: 0.25}
+  ceilingCastDistance: 1
+  coyoteTime: 2
 --- !u!114 &6303387111930401015
 MonoBehaviour:
   m_ObjectHideFlags: 0
