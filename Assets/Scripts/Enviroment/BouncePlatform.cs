@@ -2,24 +2,17 @@ using UnityEngine;
 
 public class BouncePlatform : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float bounceForce;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 currentVelocity = collision.rigidbody.linearVelocity;
-            collision.rigidbody.AddForce(new Vector2(currentVelocity.x, -currentVelocity.y));
+            for(int i = 0; i < collision.contactCount; i++)
+            {
+                collision.rigidbody.AddForce(-collision.GetContact(i).normal * bounceForce, ForceMode2D.Impulse);
+            }
         }
     }
 }

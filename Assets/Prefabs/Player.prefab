@@ -328,7 +328,7 @@ CircleCollider2D:
   m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4142bb9f10504444b88e18735976553a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -394,21 +394,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   maxSpeed: 10
   initialSpeed: 6
-  jumpHeight: 4
-  jumpSpeed: 7
-  startingFallSpeed: 4
-  maxFallSpeed: 8
-  fallAcceleration: 6
-  airTime: 0.1
-  groundCheckBox: {x: 0.5, y: 0.15}
+  hAcceleration: 1
+  jumpHeight: 250
+  groundCheckBox: {x: 0.5, y: 0.1}
   castDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   rb: {fileID: 9063258369876031840}
-  ceilingCheckBox: {x: 0.5, y: 0.15}
-  ceilingCastDistance: 1
   coyoteTime: 2
+  inputBufferTime: 4
 --- !u!114 &6303387111930401015
 MonoBehaviour:
   m_ObjectHideFlags: 0
