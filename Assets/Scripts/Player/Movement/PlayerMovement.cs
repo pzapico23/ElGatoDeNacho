@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.simulated = true;
         rb.freezeRotation = true;
     }
 
@@ -75,7 +74,8 @@ public class PlayerMovement : MonoBehaviour
     internal void OnJump(float v)
     {
         isJumpHeld = v != 0;
-        inpuBuffer = 1;
+        if(isJumpHeld)
+            inpuBuffer = 1;
     }
     private void Move()
     {
@@ -84,15 +84,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
+        
         if (isJumpHeld && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
         {
             rb.AddForceY(jumpHeight);
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
+            
         }
         if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
-         {
+        {
+            Debug.Log(isJumpHeld + " " + isGrounded);
             rb.linearVelocityY = 0;
             rb.AddForceY(jumpHeight * 2);
             isJumping = true;

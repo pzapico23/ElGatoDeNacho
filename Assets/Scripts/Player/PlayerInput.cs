@@ -17,7 +17,7 @@ namespace Player
         }
         public void OnJump(CallbackContext ctx)
         {
-            if (ctx.performed)
+            if (ctx.started)
                 playerMovement.OnJump(ctx.ReadValue<float>());
             else
                 playerMovement.OnJump(0);
