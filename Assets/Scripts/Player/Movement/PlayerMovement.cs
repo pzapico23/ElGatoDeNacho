@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float initialSpeed = 2;
     [SerializeField]
+    private float hAcceleration = 1;
+    [SerializeField]
     private float jumpHeight = 5;
     [SerializeField]
     private Vector2 groundCheckBox;
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float coyoteTime = 2;
+    [SerializeField]
+    private float inputBufferTime = 4;
 
 
     private float currentSpeed;
@@ -27,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private float currentCoyoteTime = 0;
     private bool wasGrounded = false;
+    private float inpuBuffer = 0;
 
     private void Start()
     {
@@ -56,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = 0;
             isJumping = false;
         }
+        if(inpuBuffer > 0)
+        {
+            inpuBuffer += Time.deltaTime;
+        }
         
     }
 
@@ -66,9 +75,11 @@ public class PlayerMovement : MonoBehaviour
     internal void OnJump(float v)
     {
         isJumpHeld = v != 0;
+        inpuBuffer = 1;
     }
     private void Move()
     {
+        Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * hAcceleration);
         rb.linearVelocityX = currentSpeed;
     }
     private void Jump()
@@ -78,7 +89,15 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForceY(jumpHeight);
             isJumping = true;
             currentCoyoteTime = 0;
-            Debug.Log("Cy:" + currentCoyoteTime);
+            inpuBuffer = 0;
+        }
+        if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
+         {
+            rb.linearVelocityY = 0;
+            rb.AddForceY(jumpHeight * 2);
+            isJumping = true;
+            currentCoyoteTime = 0;
+            inpuBuffer = 0;
         }
     }
 

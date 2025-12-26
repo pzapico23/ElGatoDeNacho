@@ -19,6 +19,7 @@ namespace Player
         [SerializeField] private float shootForce = 1000;
         [SerializeField] private float forceHoldGrow = 3;
         [SerializeField] private float maxAimDistance = 10;
+
         private Vector3 mousePosition;
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D boxCollider2D;
@@ -104,6 +105,7 @@ namespace Player
             circleCollider2D.enabled = false;
             rigidbody2D.freezeRotation = true;
             cameraFollow.SetIsFollowing(true);
+            rigidbody2D.gravityScale = 1;
             transform.rotation = Quaternion.identity;
         }
 
@@ -113,6 +115,7 @@ namespace Player
             InvokeRepeating("IncreaseTimer", 1f, 1f);
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
+            rigidbody2D.gravityScale = 1;
 
             Vector2 direction = (new Vector2(currentEnd.x, currentEnd.y) - rigidbody2D.position).normalized;
             rigidbody2D.AddForce(direction * shootForce * (currentHoldDistance / maxAimDistance));
