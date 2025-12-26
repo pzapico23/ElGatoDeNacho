@@ -36,4 +36,18 @@ public class FollowPlayer : MonoBehaviour
         this.isFollowing = isFollowing;
     }
 
+    public void SnapToPlayer()
+    {
+        if (!player)
+        {
+            return;
+        }
+
+        Vector3 targetPosition = player.position + offset;
+        targetPosition.z = transform.position.z;
+        targetPosition.x = transform.position.x;
+
+        transform.position = targetPosition;
+        lastPosition = transform.position;
+    }
 }

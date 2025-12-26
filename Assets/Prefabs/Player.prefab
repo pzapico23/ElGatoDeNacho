@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64fd2b2b0078ea4594c4f15c51de981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StopOutsideCamera
+  respawnGraceSeconds: 1
 --- !u!114 &4231592379688928683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2256a287be1aebe4ca74706fdb94f021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Death
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+  followPlayer: {fileID: 1472308090736284180, guid: c160089d08467a041bb3944ca43f027f, type: 3}
 --- !u!1 &7328049310276624074
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ namespace Player
         
         public void Kill()
         {
-            health = 0;
+            Debug.Log("OnDeath");
             this.gameObject.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
         }
     }
