@@ -73,6 +73,8 @@ namespace Player
                 circleCollider2D.enabled = true;
                 playerMovement.enabled = false;
                 changingMode = true;
+                rigidbody2D.gravityScale = 0;
+                rigidbody2D.linearVelocity = Vector2.zero;
             }
 
         }
@@ -100,7 +102,7 @@ namespace Player
             spriteRenderer.sprite = defaultSprite;
             boxCollider2D.enabled = true;
             circleCollider2D.enabled = false;
-            rigidbody2D.simulated = false;
+            rigidbody2D.freezeRotation = true;
             cameraFollow.SetIsFollowing(true);
             transform.rotation = Quaternion.identity;
         }
@@ -109,7 +111,7 @@ namespace Player
         {
             currentBallTimer = 0;
             InvokeRepeating("IncreaseTimer", 1f, 1f);
-            rigidbody2D.simulated = true;
+            rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
 
             Vector2 direction = (new Vector2(currentEnd.x, currentEnd.y) - rigidbody2D.position).normalized;

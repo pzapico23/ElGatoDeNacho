@@ -400,13 +400,13 @@ MonoBehaviour:
   maxFallSpeed: 8
   fallAcceleration: 6
   airTime: 0.1
-  groundCheckBox: {x: 1, y: 0.25}
+  groundCheckBox: {x: 0.5, y: 0.15}
   castDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   rb: {fileID: 9063258369876031840}
-  ceilingCheckBox: {x: 1, y: 0.25}
+  ceilingCheckBox: {x: 0.5, y: 0.15}
   ceilingCastDistance: 1
   coyoteTime: 2
 --- !u!114 &6303387111930401015

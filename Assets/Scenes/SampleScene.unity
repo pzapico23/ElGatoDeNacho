@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 941489196}
   m_Layer: 3
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: OneWay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,7 +534,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0083968f732c69845addc51aaf98875d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -884,7 +884,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0083968f732c69845addc51aaf98875d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -976,18 +976,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: jumpHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: groundCheckBox.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 519420033}
-    - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: forceHoldGrow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: maxAimDistance
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
