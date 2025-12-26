@@ -8,10 +8,9 @@ namespace Player
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-        private bool ballModeOn = false;
 
-        [SerializeField] private int currentBallTimer;
-        [SerializeField] private int maxBallTimer;
+        [SerializeField] private int maxBallMeter;
+        [SerializeField] private int startingBallMeter = 30;
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private Sprite defaultSprite;
         [SerializeField] private Sprite ballSprite;
@@ -19,13 +18,16 @@ namespace Player
         [SerializeField] private float shootForce = 1000;
         [SerializeField] private float forceHoldGrow = 3;
         [SerializeField] private float maxAimDistance = 10;
+        [SerializeField] private LineRenderer line;
 
+
+        private bool ballModeOn = false;
+        private int currentBallMeter;
         private Vector3 mousePosition;
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D boxCollider2D;
         private CircleCollider2D circleCollider2D;
         private Rigidbody2D rigidbody2D;
-        public LineRenderer line;
         private bool changingMode = false;
         private Vector3 currentEnd;
         private float currentHoldDistance = 0;
@@ -111,7 +113,6 @@ namespace Player
 
         private void StartBallMode()
         {
-            currentBallTimer = 0;
             InvokeRepeating("IncreaseTimer", 1f, 1f);
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
@@ -126,8 +127,8 @@ namespace Player
 
         private void IncreaseTimer()
         {
-            currentBallTimer++;
-            if(currentBallTimer == maxBallTimer)
+            currentBallMeter--;
+            if(currentBallMeter == 0)
             {
                 StopBallMode();
             }

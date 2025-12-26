@@ -1,10 +1,17 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform initialSpawnPoint;
+    [SerializeField] private TextMeshProUGUI scoreGUI;
     private Transform currentSpawnPoint;
+    private float points = 0;
 
+    private void Update()
+    {
+        scoreGUI.text = points.ToString();
+    }
     void Awake()
     {
         if (!initialSpawnPoint)
@@ -13,21 +20,14 @@ public class GameManager : MonoBehaviour
         currentSpawnPoint = initialSpawnPoint;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public Transform CurrentSpawnPoint
     {
         get { return currentSpawnPoint; }
         private set { currentSpawnPoint = value; }
+    }
+
+    public void addPoints(float points)
+    {
+        this.points += points;
     }
 }
