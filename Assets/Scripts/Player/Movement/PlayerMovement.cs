@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = 0;
             isJumping = false;
             extraForceTimes = 0;
-            isJumHeld = false;
         }
         if(inpuBuffer > 0)
         {
@@ -139,6 +138,10 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
+        }
+        else
+        {
+            isJumHeld = false;
         }
     }
 
