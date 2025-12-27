@@ -4,15 +4,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private float maxSpeed = 4;
+    private float maxSpeed;
     [SerializeField]
-    private float initialSpeed = 2;
+    private float initialSpeed;
     [SerializeField]
-    private float hAcceleration = 1;
+    private float hAcceleration;
     [SerializeField]
-    private float jumpStrength = 5;
+    private float jumpStrength;
     [SerializeField]
-    private float holdJumpStrength = 3;
+    private float holdJumpStrength;
     [SerializeField]
     private Vector2 groundCheckBox;
     [SerializeField]
@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
-    private float coyoteTime = 2;
+    private float coyoteTime;
     [SerializeField]
-    private float inputBufferTime = 4;
+    private float inputBufferTime;
 
 
     private float currentSpeed;
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     internal void OnMove(Vector2 vector2)
     {
         this.currentSpeed = vector2.x != 0 ? vector2.x * initialSpeed : 0;
+        Debug.Log(currentSpeed);
     }
     internal void OnJump(float v)
     {
@@ -88,7 +89,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move()
     {
-        Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * hAcceleration);
+        if(currentSpeed > 0)
+        {
+            currentSpeed = currentSpeed + hAcceleration * Time.deltaTime;
+        }
+        if(currentSpeed < 0)
+        {
+            currentSpeed = currentSpeed - hAcceleration * Time.deltaTime;
+
+        }
         rb.linearVelocityX = currentSpeed;
     }
     private void Jump()
@@ -106,13 +115,14 @@ public class PlayerMovement : MonoBehaviour
         else if(isJumHeld && !isGrounded && extraForceTimes < 3)
         {
             rb.AddForceY(holdJumpStrength);
+            isJumping = true;
             extraForceTimes++;
         }
         else  if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
         {
             Debug.Log("SALTO2");
             rb.linearVelocityY = 0;
-            rb.AddForceY(jumpStrength * 2);
+            rb.AddForceY(jumpStrength);
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;

@@ -10,9 +10,9 @@ namespace Player
 
         public void OnMove(CallbackContext ctx)
         {
-            if (ctx.performed)
+            if (ctx.started)
                 playerMovement.OnMove(ctx.ReadValue<Vector2>());
-            else
+            else if (ctx.canceled)
                 playerMovement.OnMove(Vector2.zero);
         }
         public void OnJump(CallbackContext ctx)
