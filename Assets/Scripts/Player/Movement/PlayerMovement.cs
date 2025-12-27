@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = 0;
             isJumping = false;
             extraForceTimes = 0;
+            isJumHeld = false;
         }
         if(inpuBuffer > 0)
         {
