@@ -19,7 +19,7 @@ namespace Player
         {
             if (ctx.started)
                 playerMovement.OnJump(ctx.ReadValue<float>());
-            else
+            else if (ctx.canceled)
                 playerMovement.OnJump(0);
         }
 

@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     {
         scoreGUI.text = points.ToString();
         float newWith = playerController.getCurrentBallMeter() / playerController.getMaxBallMeter() * 300;
-        Debug.Log(playerController.getMaxBallMeter());
         ballModeBar.sizeDelta = new Vector2(newWith, 30);
     }
     void Awake()

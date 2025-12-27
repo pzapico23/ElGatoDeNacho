@@ -19,6 +19,10 @@ namespace Player
         [SerializeField] private float forceHoldGrow = 3;
         [SerializeField] private float maxAimDistance = 10;
         [SerializeField] private LineRenderer line;
+        [SerializeField] private float gravityScaleBall = 1;
+        [SerializeField] private float gravityScale = 1;
+        [SerializeField] private float massScaleBall = 1;
+        [SerializeField] private float massScale = 1;
 
 
         private bool ballModeOn = false;
@@ -39,6 +43,8 @@ namespace Player
             circleCollider2D = GetComponent<CircleCollider2D>();
             rigidbody2D = GetComponent<Rigidbody2D>();
             currentBallMeter = startingBallMeter;
+            rigidbody2D.gravityScale = gravityScale;
+            rigidbody2D.mass = massScale;
         }
 
         // Update is called once per frame
@@ -108,7 +114,8 @@ namespace Player
             circleCollider2D.enabled = false;
             rigidbody2D.freezeRotation = true;
             cameraFollow.SetIsFollowing(true);
-            rigidbody2D.gravityScale = 1;
+            rigidbody2D.gravityScale = gravityScale;
+            rigidbody2D.mass = massScale;
             transform.rotation = Quaternion.identity;
         }
 
@@ -117,8 +124,8 @@ namespace Player
             InvokeRepeating("IncreaseTimer", 1f, 1f);
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
-            rigidbody2D.gravityScale = 1;
-
+            rigidbody2D.gravityScale = gravityScaleBall;
+            rigidbody2D.mass = massScaleBall;
             Vector2 direction = (new Vector2(currentEnd.x, currentEnd.y) - rigidbody2D.position).normalized;
             rigidbody2D.AddForce(direction * shootForce * (currentHoldDistance / maxAimDistance));
             changingMode = false;

@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float hAcceleration = 1;
     [SerializeField]
-    private float jumpHeight = 5;
+    private float jumpStrength = 5;
+    [SerializeField]
+    private float holdJumpStrength = 3;
     [SerializeField]
     private Vector2 groundCheckBox;
     [SerializeField]
@@ -27,11 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     private float currentSpeed;
     private bool isJumping = false;
-    private bool isJumpHeld = false;
+    private bool jusJumped = false;
+    private bool isJumHeld = false;
     private bool isGrounded = false;
     private float currentCoyoteTime = 0;
     private bool wasGrounded = false;
     private float inpuBuffer = 0;
+    private int extraForceTimes = 0;
 
     private void Start()
     {
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
        
         wasGrounded = isGrounded;
+        jusJumped = false;
     }
 
     private void Fall()
@@ -59,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentCoyoteTime = 0;
             isJumping = false;
+            extraForceTimes = 0;
         }
         if(inpuBuffer > 0)
         {
@@ -73,9 +79,12 @@ public class PlayerMovement : MonoBehaviour
     }
     internal void OnJump(float v)
     {
-        isJumpHeld = v != 0;
-        if(isJumpHeld)
+        jusJumped = v != 0;
+        isJumHeld = v != 0;
+        if (jusJumped)
             inpuBuffer = 1;
+        Debug.Log(jusJumped);
+
     }
     private void Move()
     {
@@ -84,20 +93,26 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        
-        if (isJumpHeld && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
+
+        if (jusJumped  && !isJumping && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
         {
-            rb.AddForceY(jumpHeight);
+            Debug.Log("SALTO1");
+            rb.AddForceY(jumpStrength);
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
             
         }
-        if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
+        else if(isJumHeld && !isGrounded && extraForceTimes < 3)
         {
-            Debug.Log(isJumpHeld + " " + isGrounded);
+            rb.AddForceY(holdJumpStrength);
+            extraForceTimes++;
+        }
+        else  if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
+        {
+            Debug.Log("SALTO2");
             rb.linearVelocityY = 0;
-            rb.AddForceY(jumpHeight * 2);
+            rb.AddForceY(jumpStrength * 2);
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
