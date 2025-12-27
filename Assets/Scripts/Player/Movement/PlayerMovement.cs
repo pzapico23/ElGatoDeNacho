@@ -98,6 +98,18 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = currentSpeed - hAcceleration * Time.deltaTime;
 
         }
+        if(Math.Abs(currentSpeed) > maxSpeed)
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed = maxSpeed;
+            }
+            if (currentSpeed < 0)
+            {
+                currentSpeed = -maxSpeed;
+
+            }
+        }
         rb.linearVelocityX = currentSpeed;
     }
     private void Jump()
