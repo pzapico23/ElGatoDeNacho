@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   initialSpawnPoint: {fileID: 4293762313360895692}
+  scoreGUI: {fileID: 0}
+  playerController: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+  ballModeBar: {fileID: 0}

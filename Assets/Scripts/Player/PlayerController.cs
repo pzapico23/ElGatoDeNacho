@@ -9,8 +9,8 @@ namespace Player
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-        [SerializeField] private int maxBallMeter;
-        [SerializeField] private int startingBallMeter = 30;
+        [SerializeField] private float maxBallMeter = 100;
+        [SerializeField] private float startingBallMeter = 30;
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private Sprite defaultSprite;
         [SerializeField] private Sprite ballSprite;
@@ -22,7 +22,7 @@ namespace Player
 
 
         private bool ballModeOn = false;
-        private int currentBallMeter;
+        private float currentBallMeter;
         private Vector3 mousePosition;
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D boxCollider2D;
@@ -38,6 +38,7 @@ namespace Player
             boxCollider2D = GetComponent<BoxCollider2D>();
             circleCollider2D = GetComponent<CircleCollider2D>();
             rigidbody2D = GetComponent<Rigidbody2D>();
+            currentBallMeter = startingBallMeter;
         }
 
         // Update is called once per frame
@@ -132,6 +133,15 @@ namespace Player
             {
                 StopBallMode();
             }
+        }
+
+        public float getCurrentBallMeter()
+        {
+            return currentBallMeter;
+        }
+        public float getMaxBallMeter()
+        {
+            return maxBallMeter;
         }
     }
 }
