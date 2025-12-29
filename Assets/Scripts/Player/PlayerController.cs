@@ -23,6 +23,7 @@ namespace Player
         [SerializeField] private float gravityScale = 1;
         [SerializeField] private float massScaleBall = 1;
         [SerializeField] private float massScale = 1;
+        [SerializeField] private GameManager gameManager;
 
 
         private bool ballModeOn = false;
@@ -75,7 +76,8 @@ namespace Player
 
         internal void OnModeChangeStart()
         {
-            
+            if (!ballModeOn && currentBallMeter == 0)
+                return;
             if (!ballModeOn)
             {
                 spriteRenderer.sprite = ballSprite;
@@ -91,6 +93,8 @@ namespace Player
 
         internal void OnModeChangeFinish()
         {
+            if (!ballModeOn && currentBallMeter == 0)
+                return;
             ballModeOn = !ballModeOn;
             if (ballModeOn)
             {
@@ -105,7 +109,7 @@ namespace Player
 
         private void StopBallMode()
         {
-            CancelInvoke("IncreaseTimer");
+            CancelInvoke("DecreaseBallMeter");
             rigidbody2D.linearVelocity = Vector2.zero;
             rigidbody2D.angularVelocity = 0f;
             playerMovement.enabled = true;
@@ -121,7 +125,7 @@ namespace Player
 
         private void StartBallMode()
         {
-            InvokeRepeating("IncreaseTimer", 1f, 1f);
+            InvokeRepeating("DecreaseBallMeter", 1f, 1f);
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
             rigidbody2D.gravityScale = gravityScaleBall;
@@ -133,10 +137,10 @@ namespace Player
 
         }
 
-        private void IncreaseTimer()
+        private void DecreaseBallMeter()
         {
             currentBallMeter--;
-            if(currentBallMeter == 0)
+            if(currentBallMeter <= 0)
             {
                 StopBallMode();
             }
@@ -156,6 +160,17 @@ namespace Player
             if (ballModeOn)
             {
                 StopBallMode();
+            }
+        }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.GetComponent<PointGiver>())
+            {
+                if (ballModeOn)
+                {
+                    gameManager.addPoints(collision.gameObject.GetComponent<PointGiver>().pointsGiven);
+                }
             }
         }
     }
