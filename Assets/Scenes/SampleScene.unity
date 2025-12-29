@@ -925,6 +925,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 581872960}
+    - target: {fileID: 2579661516861524248, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: followPlayer
+      value: 
+      objectReference: {fileID: 519420033}
     - target: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_Name
       value: Player
@@ -969,10 +973,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: jumpStrength
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: hAcceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: holdJumpStrength
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 519420033}
+    - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: gravityScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: maxBallMeter
       value: 100
