@@ -59,11 +59,19 @@ public class PlayerMovement : MonoBehaviour
         if (wasGrounded && !isGrounded && !isJumping)
         {
             currentCoyoteTime += Time.deltaTime;
+            Debug.Log(currentCoyoteTime);
+        }
+        else if(coyoteTime > 0)
+        {
+            currentCoyoteTime += Time.deltaTime;
+        }
+        if(!wasGrounded && isGrounded)
+        {
+            isJumping = false;
         }
         if (isGrounded)
         {
             currentCoyoteTime = 0;
-            isJumping = false;
             extraForceTimes = 0;
         }
         if(inpuBuffer > 0)
@@ -76,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
     internal void OnMove(Vector2 vector2)
     {
         this.currentSpeed = vector2.x != 0 ? vector2.x * initialSpeed : 0;
-        Debug.Log(currentSpeed);
     }
     internal void OnJump(float v)
     {
@@ -84,8 +91,6 @@ public class PlayerMovement : MonoBehaviour
         isJumHeld = v != 0;
         if (jusJumped)
             inpuBuffer = 1;
-        Debug.Log(jusJumped);
-
     }
     private void Move()
     {
@@ -115,27 +120,27 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
 
-        if (jusJumped  && !isJumping && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
+        if (jusJumped && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
         {
-            Debug.Log("SALTO1");
+            Debug.Log("SALTO:" + currentCoyoteTime);
             rb.AddForceY(jumpStrength);
             isJumping = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
             
         }
-        else if(isJumHeld && !isGrounded && extraForceTimes < 3)
+        else if(isJumHeld &&  isJumping && !isGrounded && extraForceTimes < 3)
         {
             rb.AddForceY(holdJumpStrength);
-            isJumping = true;
+            Debug.Log(isJumHeld);
             extraForceTimes++;
         }
         else  if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
         {
-            Debug.Log("SALTO2");
             rb.linearVelocityY = 0;
             rb.AddForceY(jumpStrength);
             isJumping = true;
+            isJumHeld = true;
             currentCoyoteTime = 0;
             inpuBuffer = 0;
         }

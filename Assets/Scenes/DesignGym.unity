@@ -800,6 +800,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5950947739400828436, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1911925539}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -950,6 +954,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8c02fb64cc9724f8551727b017c8f7, type: 3}
+--- !u!20 &1911925539 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3636198965828620157, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+  m_PrefabInstance: {fileID: 8797488655859435346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3832447419601805749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1033,6 +1042,14 @@ PrefabInstance:
     - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: hAcceleration
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: inputBufferTime
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: groundCheckBox.y
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: holdJumpStrength
