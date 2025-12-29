@@ -14,6 +14,8 @@ public class Death : MonoBehaviour
     void RespawnPlayer(Transform spawnPoint)
     {
         transform.position = spawnPoint.position;
+
+        GetComponent<PlayerController>().ForceExitBallMode();
         
         GetComponent<Health>().ResetHealth(); 
 

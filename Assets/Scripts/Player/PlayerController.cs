@@ -150,5 +150,13 @@ namespace Player
         {
             return maxBallMeter;
         }
+
+        public void ForceExitBallMode()
+        {
+            if (ballModeOn)
+            {
+                StopBallMode();
+            }
+        }
     }
 }
