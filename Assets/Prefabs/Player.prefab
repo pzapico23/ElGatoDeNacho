@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   maxSpeed: 10
-  initialSpeed: 6
+  initialSpeed: 1
   hAcceleration: 100
   jumpStrength: 525
   holdJumpStrength: 150
@@ -405,8 +405,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   rb: {fileID: 9063258369876031840}
-  coyoteTime: 2
-  inputBufferTime: 4
+  coyoteTime: 0.1
+  inputBufferTime: 1.1
 --- !u!114 &6303387111930401015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,16 +562,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   maxBallMeter: 100
-  startingBallMeter: 30
+  startingBallMeter: 100
   playerMovement: {fileID: 7367424277611737225}
   defaultSprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   ballSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   cameraFollow: {fileID: 1472308090736284180, guid: c160089d08467a041bb3944ca43f027f, type: 3}
-  shootForce: 1000
-  forceHoldGrow: 1
-  maxAimDistance: 5
+  shootForce: 4000
+  forceHoldGrow: 1.5
+  maxAimDistance: 3.5
   line: {fileID: 6530462393616392441}
-  gravityScaleBall: 1
+  gravityScaleBall: 3
   gravityScale: 4
   massScaleBall: 1
   massScale: 1
