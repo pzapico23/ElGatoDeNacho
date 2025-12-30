@@ -24,6 +24,9 @@ namespace Player
         [SerializeField] private float massScaleBall = 1;
         [SerializeField] private float massScale = 1;
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private float meterLossPerSecond;
+        [SerializeField] private float meterGainPerSecond;
+
 
 
         private bool ballModeOn = false;
@@ -88,7 +91,6 @@ namespace Player
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.linearVelocity = Vector2.zero;
             }
-
         }
 
         internal void OnModeChangeFinish()
@@ -110,6 +112,7 @@ namespace Player
         private void StopBallMode()
         {
             CancelInvoke("DecreaseBallMeter");
+            InvokeRepeating("IncreaseBallMeter", 1f, 1f);
             rigidbody2D.linearVelocity = Vector2.zero;
             rigidbody2D.angularVelocity = 0f;
             playerMovement.enabled = true;
@@ -126,6 +129,7 @@ namespace Player
         private void StartBallMode()
         {
             InvokeRepeating("DecreaseBallMeter", 1f, 1f);
+            CancelInvoke("IncreaseBallMeter");
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
             rigidbody2D.gravityScale = gravityScaleBall;
@@ -139,10 +143,18 @@ namespace Player
 
         private void DecreaseBallMeter()
         {
-            currentBallMeter--;
+            currentBallMeter -= meterLossPerSecond;
             if(currentBallMeter <= 0)
             {
                 StopBallMode();
+            }
+        }
+        private void IncreaseBallMeter()
+        {
+            currentBallMeter += meterGainPerSecond;
+            if (currentBallMeter >= maxBallMeter)
+            {
+                currentBallMeter = maxBallMeter;
             }
         }
 
