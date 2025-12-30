@@ -1,16 +1,17 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     private BoxCollider _boxCollider;
     private Rigidbody2D _rigidBody;
-    private Vector3 m_yVelocity = Vector3.zero;
-    private bool isGrounded = false;
-    private bool wasGrounded = false;
+    private bool isGrounded = true;
+    private bool seePlayer = false;
     [SerializeField] private Vector2 groundCheckBox;
     [SerializeField] private Vector3 castDistance;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Vector2 playerCheckBox;
+    [SerializeField] private Vector3 castCheckPlayer;
+    [SerializeField] private LayerMask playerLayer;
 
     [SerializeField] private float velocity;
 
@@ -19,28 +20,37 @@ public class EnemyController : MonoBehaviour
     {
         _boxCollider = GetComponent<BoxCollider>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody.linearVelocityX = velocity;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Patrol();
         CheckGround();
+        CheckPlayer();
+        Patrol();
+        Attack();
     }
 
     private void Patrol()
     {
-        _rigidBody.linearVelocityX = velocity;
-
         if(isGrounded == false)
         {
-            _rigidBody.linearVelocityX = -velocity;
-        }
-        else
-        {
-            _rigidBody.linearVelocityX = velocity;
+            transform.Rotate(0f, 180f, 0f);
+            castDistance.x *= -1;
+            castCheckPlayer.x *= -1;
+            _rigidBody.linearVelocityX *= -1;
         }
     }
+
+    private void Attack()
+    {
+        if (seePlayer == true && isGrounded == true)
+        {
+            _rigidBody.linearVelocityX = 5;
+        }
+    }
+    
 
     private void CheckGround()
     {
@@ -54,9 +64,23 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void CheckPlayer()
+    {
+        if (Physics2D.BoxCast(transform.position + castCheckPlayer, playerCheckBox, 0, transform.forward, 0, playerLayer))
+        {
+            seePlayer = true;
+        }
+        else
+        {
+            seePlayer = false;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position + castDistance, groundCheckBox);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + castCheckPlayer, playerCheckBox);
     }
 }
