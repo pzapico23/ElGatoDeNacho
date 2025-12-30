@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player.PlayerController playerController;
     [SerializeField] private RectTransform ballModeBar;
     private Transform currentSpawnPoint;
+    private Vector3 lastGroundPosition;
     private float points = 0;
 
     private void Update()
@@ -22,12 +23,19 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No se ha asignado un punto de spawn inicial");
 
         currentSpawnPoint = initialSpawnPoint;
+        lastGroundPosition = initialSpawnPoint.position;
     }
 
     public Transform CurrentSpawnPoint
     {
         get { return currentSpawnPoint; }
         private set { currentSpawnPoint = value; }
+    }
+
+    public Vector3 LastGroundPosition
+    {
+        get { return lastGroundPosition; }
+        set { lastGroundPosition = value; }
     }
 
     public void addPoints(float points)

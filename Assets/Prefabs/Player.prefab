@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 7783190175996375435}
   - component: {fileID: 6766615036214615909}
   - component: {fileID: 2579661516861524248}
+  - component: {fileID: 647216230854402203}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -395,8 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   maxSpeed: 10
   initialSpeed: 6
-  hAcceleration: 1
-  jumpHeight: 250
+  hAcceleration: 100
+  jumpStrength: 525
+  holdJumpStrength: 150
   groundCheckBox: {x: 0.5, y: 0.1}
   castDistance: 1
   groundLayer:
@@ -559,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e53d3ee49d746489c4e9ad0cc5b590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  maxBallMeter: 0
+  maxBallMeter: 100
   startingBallMeter: 30
   playerMovement: {fileID: 7367424277611737225}
   defaultSprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
@@ -569,6 +571,11 @@ MonoBehaviour:
   forceHoldGrow: 1
   maxAimDistance: 5
   line: {fileID: 6530462393616392441}
+  gravityScaleBall: 1
+  gravityScale: 4
+  massScaleBall: 1
+  massScale: 1
+  gameManager: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
 --- !u!114 &6766615036214615909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,8 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69121f98c2d4e3bba025b92c60dec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Health
-  health: 100
-  maxHealth: 100
+  hearts: 3
+  maxHearts: 3
 --- !u!114 &2579661516861524248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +604,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Death
   gameManager: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
   followPlayer: {fileID: 1472308090736284180, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+--- !u!114 &647216230854402203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7012448844951767226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f5b048631b54f48938b085a29ecf7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundTracker
+  gameManager: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &7328049310276624074
 GameObject:
   m_ObjectHideFlags: 0

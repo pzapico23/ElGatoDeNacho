@@ -4,23 +4,35 @@ namespace Player
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private float health = 100;
-        [SerializeField] private float maxHealth = 100;
+        [SerializeField] private int hearts = 3;
+        [SerializeField] private int maxHearts = 3;
 
         void Start()
         {
             ResetHealth();
         }
         
-        public void ResetHealth()
+        void ResetHealth()
         {
-            health = maxHealth;
+            hearts = maxHearts;
         }
         
         public void Kill()
         {
-            Debug.Log("OnDeath");
-            this.gameObject.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
+            OnHit();
+            if (hearts > 0)
+            {
+                this.gameObject.SendMessage("OnFallen", SendMessageOptions.DontRequireReceiver);
+            } else
+            {
+                this.gameObject.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
+                ResetHealth();
+            }
+        }
+
+        void OnHit()
+        {
+            hearts --;
         }
     }
 }

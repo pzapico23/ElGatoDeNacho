@@ -1,3 +1,4 @@
+using System;
 using Player;
 using UnityEngine;
 
@@ -8,16 +9,25 @@ public class Death : MonoBehaviour
 
     void OnDeath()
     {
-        RespawnPlayer(gameManager.CurrentSpawnPoint);
+        if (gameObject.CompareTag("Player"))
+        {
+            RespawnPlayer(gameManager.CurrentSpawnPoint.position);
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void RespawnPlayer(Transform spawnPoint)
+    void OnFallen()
     {
-        transform.position = spawnPoint.position;
+        RespawnPlayer(gameManager.LastGroundPosition);
+    }
+
+    void RespawnPlayer(Vector3 spawnPoint)
+    {
+        transform.position = spawnPoint;
 
         GetComponent<PlayerController>().ForceExitBallMode();
-        
-        GetComponent<Health>().ResetHealth(); 
 
         StopOutsideCamera stopOutsideCamera = GetComponent<StopOutsideCamera>();
         if (stopOutsideCamera)
