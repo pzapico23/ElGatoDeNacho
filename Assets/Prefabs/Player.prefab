@@ -620,6 +620,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  platformCheckWidth: 1.5
+  groundCheckDistance: 1.5
 --- !u!1 &7328049310276624074
 GameObject:
   m_ObjectHideFlags: 0
