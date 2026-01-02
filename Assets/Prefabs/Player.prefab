@@ -576,6 +576,8 @@ MonoBehaviour:
   massScaleBall: 1
   massScale: 1
   gameManager: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+  meterLossPerSecond: 5
+  meterGainPerSecond: 4
 --- !u!114 &6766615036214615909
 MonoBehaviour:
   m_ObjectHideFlags: 0
