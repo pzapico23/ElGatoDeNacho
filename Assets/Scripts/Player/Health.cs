@@ -34,5 +34,15 @@ namespace Player
         {
             hearts --;
         }
+
+        public int Hearts
+        {
+            get { return hearts; }
+        }
+
+        public int MaxHearts
+        {
+            get { return maxHearts; }
+        }
     }
 }
