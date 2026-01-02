@@ -77,10 +77,10 @@ namespace Player
             }
         }
 
-        internal void OnModeChangeStart()
+        internal bool OnModeChangeStart()
         {
             if (!ballModeOn && currentBallMeter == 0)
-                return;
+                return false;
             if (!ballModeOn)
             {
                 spriteRenderer.sprite = ballSprite;
@@ -90,7 +90,9 @@ namespace Player
                 changingMode = true;
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.linearVelocity = Vector2.zero;
+                return true;
             }
+            return false;
         }
 
         internal void OnModeChangeFinish()

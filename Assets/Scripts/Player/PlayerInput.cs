@@ -7,6 +7,9 @@ namespace Player
     {
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerController playerController;
+        [SerializeField] private FlippersController flippersControllerRight;
+        [SerializeField] private FlippersController flippersControllerLeft;
+
 
         public void OnMove(CallbackContext ctx)
         {
@@ -26,9 +29,33 @@ namespace Player
         public void OnModeChange(CallbackContext ctx)
         {
             if (ctx.performed)
-                playerController.OnModeChangeStart();
+                if (playerController.OnModeChangeStart())
+                {
+                    flippersControllerLeft.enabled = true;
+                    flippersControllerRight.enabled = true;
+                }
+                else
+                {
+                    flippersControllerLeft.enabled = false;
+                    flippersControllerRight.enabled = false;
+                }
             if (ctx.canceled)
                 playerController.OnModeChangeFinish();
+        }
+
+        public void OnFlipperUsedLeft(CallbackContext ctx)
+        {
+            if (ctx.performed)
+                flippersControllerLeft.changeState(true);
+            if (ctx.canceled)
+                flippersControllerLeft.changeState(false);
+        }
+        public void OnFlipperUsedRight(CallbackContext ctx)
+        {
+            if (ctx.performed)
+                flippersControllerRight.changeState(true);
+            if (ctx.canceled)
+                flippersControllerRight.changeState(false);
         }
 
     }
