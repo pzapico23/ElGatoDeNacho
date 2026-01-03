@@ -1,19 +1,22 @@
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class EnemyController : MonoBehaviour
+public class EnemyBuhoController : MonoBehaviour
 {
     private BoxCollider _boxCollider;
     private Rigidbody2D _rigidBody;
-    private bool isGrounded = true;
     private bool seePlayer = false;
-    [SerializeField] private Vector2 groundCheckBox;
-    [SerializeField] private Vector3 castDistance;
-    [SerializeField] private LayerMask groundLayer;
+    private Vector2 _originalPosition;
+    private float _upRange;
+    private float _downRange;
+
+    [SerializeField] private float patrolRange;
     [SerializeField] private Vector2 playerCheckBox;
     [SerializeField] private Vector3 castCheckPlayer;
     [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private float acceleration;
     [SerializeField] private float velocity;
+    [SerializeField] private float acceleration;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,47 +24,47 @@ public class EnemyController : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _rigidBody.linearVelocityX = velocity;
+        _originalPosition = transform.position;
+        _upRange = transform.position.x + patrolRange;
+        _downRange = transform.position.x - patrolRange;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckGround();
         CheckPlayer();
         Patrol();
         Attack();
     }
 
     private void Patrol()
-    {
-        if(isGrounded == false)
+    { 
+        if (seePlayer == false)
         {
-            transform.Rotate(0f, 180f, 0f);
-            castDistance.x *= -1;
-            castCheckPlayer.x *= -1;
-            _rigidBody.linearVelocityX = velocity * -1;
+            if (transform.position.x > _upRange)
+            {
+                transform.Rotate(0f, 180f, 0f);
+                castCheckPlayer.x *= -1;
+                _rigidBody.linearVelocityX = velocity * -1;
+            }
+            else if (transform.position.x < _downRange)
+            {
+                transform.Rotate(0f, 180f, 0f);
+                castCheckPlayer.x *= -1;
+                _rigidBody.linearVelocityX = velocity * -1;
+            }
         }
+
     }
 
     private void Attack()
     {
-        if (seePlayer == true && isGrounded == true)
+        if (seePlayer == true)
         {
             _rigidBody.linearVelocityX = acceleration;
+            _rigidBody.linearVelocityY = -acceleration;
         }
-    }
-    
-
-    private void CheckGround()
-    {
-        if (Physics2D.BoxCast(transform.position + castDistance, groundCheckBox, 0, -transform.up, 0, groundLayer))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+//        transform.position = _originalPosition;
     }
 
     private void CheckPlayer()
@@ -78,8 +81,6 @@ public class EnemyController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position + castDistance, groundCheckBox);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + castCheckPlayer, playerCheckBox);
     }
