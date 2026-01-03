@@ -129,6 +129,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
   m_PrefabInstance: {fileID: 3832447419601805749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &212591392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+  m_PrefabInstance: {fileID: 3832447419601805749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &321876080
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +465,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7765394577819353452, guid: 2abaae64f5cb40f42b5255aa39934c00, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 212591392}
+    - target: {fileID: -7765394577819353452, guid: 2abaae64f5cb40f42b5255aa39934c00, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1964885572}
+    - target: {fileID: 975478607259097851, guid: 2abaae64f5cb40f42b5255aa39934c00, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2880455564206191574, guid: 2abaae64f5cb40f42b5255aa39934c00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42
@@ -806,7 +823,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
   m_PrefabInstance: {fileID: 3832447419601805749}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 212591392}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0e53d3ee49d746489c4e9ad0cc5b590, type: 3}
@@ -1000,11 +1017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.13
+      value: -32.25
       objectReference: {fileID: 0}
     - target: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.56
+      value: -12.23
       objectReference: {fileID: 0}
     - target: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1279,13 +1296,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3132521312405707515, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
-      propertyPath: playerCheckBox.x
-      value: 4
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 212591392}
     - target: {fileID: 3132521312405707515, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
-      propertyPath: castCheckPlayer.x
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1964885572}
     - target: {fileID: 5759419789641422888, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: m_Name
       value: Enemy

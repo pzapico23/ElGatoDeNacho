@@ -29,7 +29,7 @@ namespace Player
 
 
 
-        private bool ballModeOn = false;
+        public bool ballModeOn = false;
         private float currentBallMeter;
         private Vector3 mousePosition;
         private SpriteRenderer spriteRenderer;

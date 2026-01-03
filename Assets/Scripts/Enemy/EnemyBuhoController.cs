@@ -1,15 +1,16 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Player;
 
 public class EnemyBuhoController : MonoBehaviour
 {
     private BoxCollider _boxCollider;
     private Rigidbody2D _rigidBody;
     private bool seePlayer = false;
-    private Vector2 _originalPosition;
-    private float _upRange;
-    private float _downRange;
+    private Vector3 _originalPosition;
+    private Vector3 _upRange;
+    private Vector3 _downRange;
 
     [SerializeField] private float patrolRange;
     [SerializeField] private Vector2 playerCheckBox;
@@ -17,6 +18,8 @@ public class EnemyBuhoController : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float velocity;
     [SerializeField] private float acceleration;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,8 +28,8 @@ public class EnemyBuhoController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _rigidBody.linearVelocityX = velocity;
         _originalPosition = transform.position;
-        _upRange = transform.position.x + patrolRange;
-        _downRange = transform.position.x - patrolRange;
+        _upRange = new Vector3(transform.position.x + patrolRange, transform.position.y , transform.position.z);
+        _downRange = new Vector3(transform.position.x - patrolRange, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -35,36 +38,49 @@ public class EnemyBuhoController : MonoBehaviour
         CheckPlayer();
         Patrol();
         Attack();
+        Escape();
     }
 
     private void Patrol()
     { 
-        if (seePlayer == false)
+        if (seePlayer == false && playerController.ballModeOn == false)
         {
-            if (transform.position.x > _upRange)
+            if (transform.position.x > _upRange.x || transform.position.x < _downRange.x)
             {
                 transform.Rotate(0f, 180f, 0f);
                 castCheckPlayer.x *= -1;
-                _rigidBody.linearVelocityX = velocity * -1;
+                _rigidBody.linearVelocityX *= -1;
             }
-            else if (transform.position.x < _downRange)
-            {
-                transform.Rotate(0f, 180f, 0f);
-                castCheckPlayer.x *= -1;
-                _rigidBody.linearVelocityX = velocity * -1;
-            }
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _originalPosition, velocity * Time.deltaTime);
         }
 
     }
 
     private void Attack()
     {
-        if (seePlayer == true)
+        if (seePlayer == true && playerController.ballModeOn == false)
         {
-            _rigidBody.linearVelocityX = acceleration;
-            _rigidBody.linearVelocityY = -acceleration;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
         }
-//        transform.position = _originalPosition;
+    }
+
+    private void Escape()
+    {
+        if (playerController.ballModeOn == true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * acceleration * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (playerController.ballModeOn == true && collider.gameObject.CompareTag("Player"))
+        {
+            Destroy(collider.gameObject);
+        }
     }
 
     private void CheckPlayer()

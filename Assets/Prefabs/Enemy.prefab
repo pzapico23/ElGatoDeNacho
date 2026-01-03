@@ -157,11 +157,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  playerCheckBox: {x: 5, y: 1}
-  castCheckPlayer: {x: 2, y: 0, z: 0}
+  playerCheckBox: {x: 4, y: 1}
+  castCheckPlayer: {x: 1, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  acceleration: 5
   velocity: 1.75
 --- !u!50 &4490851865561864424
 Rigidbody2D:

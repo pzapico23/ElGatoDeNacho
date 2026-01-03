@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -6,6 +7,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private bool isGrounded = true;
     private bool seePlayer = false;
+
     [SerializeField] private Vector2 groundCheckBox;
     [SerializeField] private Vector3 castDistance;
     [SerializeField] private LayerMask groundLayer;
@@ -14,6 +16,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float acceleration;
     [SerializeField] private float velocity;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,27 +34,44 @@ public class EnemyController : MonoBehaviour
         CheckPlayer();
         Patrol();
         Attack();
+        Escape();
     }
 
     private void Patrol()
     {
-        if(isGrounded == false)
+        if(seePlayer == false && isGrounded == false && playerController.ballModeOn == false)
         {
             transform.Rotate(0f, 180f, 0f);
             castDistance.x *= -1;
             castCheckPlayer.x *= -1;
-            _rigidBody.linearVelocityX = velocity * -1;
+            _rigidBody.linearVelocityX *= -1;
         }
     }
 
     private void Attack()
     {
-        if (seePlayer == true && isGrounded == true)
+        if (seePlayer == true && isGrounded == true && playerController.ballModeOn == false)
         {
             _rigidBody.linearVelocityX = acceleration;
         }
     }
-    
+
+    private void Escape()
+    {
+        if (isGrounded == true && playerController.ballModeOn == true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * acceleration * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (playerController.ballModeOn == true && collider.gameObject.CompareTag("Player"))
+        {
+            Destroy(collider.gameObject);
+        }
+    }
+
 
     private void CheckGround()
     {

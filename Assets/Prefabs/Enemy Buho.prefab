@@ -185,5 +185,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  velocity: 1
+  velocity: 1.75
   acceleration: 5
+  player: {fileID: 0}
