@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float inputBufferTime;
 
-
+    private Animator animator;
     private float currentSpeed;
     private bool isJumping = false;
     private bool jusJumped = false;
@@ -41,6 +41,33 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (isJumping)
+        {
+            animator.SetBool("isJumping", true);
+            animator.SetBool("hasLanded", false);
+
+        }
+        else
+        {
+            animator.SetBool("isJumping", false);
+        }
+        if(rb.linearVelocityY < 0)
+        {
+            animator.SetBool("isFalling", true);
+        }
+        else
+        {
+            animator.SetBool("isFalling", false);
+        }
+        if (rb.linearVelocity.x > 0.1f)
+            GetComponent<SpriteRenderer>().flipX = true; 
+        else if (rb.linearVelocity.x < -0.1f)
+            GetComponent<SpriteRenderer>().flipX = false;  
     }
 
     void FixedUpdate()
@@ -68,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if(!wasGrounded && isGrounded)
         {
             isJumping = false;
+            animator.SetBool("hasLanded", true);
         }
         if (isGrounded)
         {
