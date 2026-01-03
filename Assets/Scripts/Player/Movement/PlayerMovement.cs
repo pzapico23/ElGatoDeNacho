@@ -120,8 +120,16 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
 
+        //Voy a asumir que el sonido se emite aqui
+        
+
         if (jusJumped && (isGrounded || (currentCoyoteTime < coyoteTime && currentCoyoteTime != 0)))
         {
+            if (GetComponent<SoundManager>() != null)
+            {
+                GetComponent<SoundManager>().PlaySound("Salto", 0.5f, 0.1f, 0.3f);
+            }
+
             Debug.Log("SALTO:" + currentCoyoteTime);
             rb.AddForceY(jumpStrength);
             isJumping = true;

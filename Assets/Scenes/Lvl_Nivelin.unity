@@ -342,6 +342,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3311384520895336959, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: audioEntries.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3311384520895336959, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: audioEntries.Array.data[0].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 80c253e2df3efc7419435e108dba4795, type: 3}
+    - target: {fileID: -3311384520895336959, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: audioEntries.Array.data[0].clave
+      value: Salto
+      objectReference: {fileID: 0}
     - target: {fileID: 647216230854402203, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: gameManager
       value: 
@@ -362,6 +374,30 @@ PrefabInstance:
       propertyPath: flippersControllerRight
       value: 
       objectReference: {fileID: 1054165311}
+    - target: {fileID: 5396549358947794713, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
+      value: a928d17c-5207-4be5-97e5-04ed575f3f81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
+      value: f607850e-6acd-44c8-9863-193969c103e0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
+      value: 'Player/LeftFlipper[/Keyboard/q]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: 'Player/RightFlipper[/Keyboard/e]'
+      objectReference: {fileID: 0}
     - target: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_Name
       value: Player
