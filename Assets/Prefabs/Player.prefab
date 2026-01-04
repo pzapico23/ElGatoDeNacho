@@ -183,7 +183,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -48.91, y: -11.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.86212724, y: 0.86212724, z: 0.86212724}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6746586566480644935}
@@ -236,14 +236,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6772054642461304120, guid: c924109eba53d7a478261b0e6b7af3a4, type: 3}
+  m_Sprite: {fileID: -693028301672331356, guid: f3bd52bde578ac34eacdc13b1926c30e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.16, y: 2.64}
+  m_Size: {x: 1.47, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -309,17 +309,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.004152298}
+  m_Offset: {x: 0.06, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5283445, y: 0.50000006}
-    oldSize: {x: 2.16, y: 2.64}
-    newSize: {x: 2.16, y: 2.64}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5400001, y: 2.35}
+    newSize: {x: 1.47, y: 1.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2.5608292}
+  m_Size: {x: 1, y: 2.3}
   m_EdgeRadius: 0
 --- !u!58 &7739239464482142652
 CircleCollider2D:
@@ -404,7 +404,7 @@ MonoBehaviour:
   jumpStrength: 525
   holdJumpStrength: 150
   groundCheckBox: {x: 0.5, y: 0.1}
-  castDistance: 1.32
+  castDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -600,7 +600,7 @@ MonoBehaviour:
   maxBallMeter: 100
   startingBallMeter: 100
   playerMovement: {fileID: 7367424277611737225}
-  defaultSprite: {fileID: -7430851600803623266, guid: c924109eba53d7a478261b0e6b7af3a4, type: 3}
+  defaultSprite: {fileID: -87903079462558589, guid: 11b377d50d224ca4d86639f61a1e823d, type: 3}
   ballSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   cameraFollow: {fileID: 0}
   shootForce: 4000
@@ -612,8 +612,9 @@ MonoBehaviour:
   massScaleBall: 1
   massScale: 1
   gameManager: {fileID: 0}
-  meterLossPerSecond: 1
-  meterGainPerSecond: 1
+  meterLossPerSecond: 5
+  meterGainPerSecond: 4
+  ballModeOn: 0
 --- !u!114 &6766615036214615909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +668,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7012448844951767226}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
