@@ -1,7 +1,8 @@
+using NUnit.Framework.Constraints;
 using Player;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyControllerKamikaze : MonoBehaviour
 {
     private Rigidbody2D _rigidBody;
     private bool isGrounded = true;
@@ -54,12 +55,10 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        if (seePlayer == true && isGrounded == true && playerController.ballModeOn == false)
+        if (seePlayer == true && playerController.ballModeOn == false)
         {
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? acceleration : -acceleration;
-        } else if (seePlayer == true && isGrounded == false && playerController.ballModeOn == false)
-        {
-            _rigidBody.linearVelocityX = 0;
+            transform.rotation = Quaternion.identity;
         }
     }
 

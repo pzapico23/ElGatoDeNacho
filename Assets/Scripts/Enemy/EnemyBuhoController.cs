@@ -11,6 +11,9 @@ public class EnemyBuhoController : MonoBehaviour
     private Vector3 _originalPosition;
     private Vector3 _upRange;
     private Vector3 _downRange;
+    private bool isRight = true;
+    private bool goodLocation = true;
+    private Health health;
 
     [SerializeField] private float patrolRange;
     [SerializeField] private Vector2 playerCheckBox;
@@ -26,6 +29,7 @@ public class EnemyBuhoController : MonoBehaviour
     {
         _boxCollider = GetComponent<BoxCollider>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
         _rigidBody.linearVelocityX = velocity;
         _originalPosition = transform.position;
         _upRange = new Vector3(transform.position.x + patrolRange, transform.position.y , transform.position.z);
@@ -37,49 +41,83 @@ public class EnemyBuhoController : MonoBehaviour
     {
         CheckPlayer();
         Patrol();
+        Return();
         Attack();
         Escape();
+        Facing();
     }
 
     private void Patrol()
-    { 
-        if (seePlayer == false && playerController.ballModeOn == false)
+    {
+        if (seePlayer == false && playerController.ballModeOn == false && goodLocation == true)
         {
+            _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? velocity : -velocity;
+            
             if (transform.position.x > _upRange.x || transform.position.x < _downRange.x)
             {
-                transform.Rotate(0f, 180f, 0f);
-                castCheckPlayer.x *= -1;
                 _rigidBody.linearVelocityX *= -1;
             }
         }
-        else
+
+    }
+
+    private void Return()
+    {
+        if(seePlayer == false && playerController.ballModeOn == false && goodLocation == false)
         {
             transform.position = Vector3.MoveTowards(transform.position, _originalPosition, velocity * Time.deltaTime);
+            goodLocation = true;
         }
-
     }
 
     private void Attack()
     {
         if (seePlayer == true && playerController.ballModeOn == false)
-        {
+       { 
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
+            goodLocation = false;
         }
     }
 
     private void Escape()
     {
-        if (playerController.ballModeOn == true)
+        if (playerController.ballModeOn == true && transform.position.x < player.transform.position.x)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * acceleration * Time.deltaTime);
+            _rigidBody.linearVelocityX = -acceleration;
+            goodLocation = false;
+        } else if (playerController.ballModeOn == true && transform.position.x > player.transform.position.x)
+        {
+            _rigidBody.linearVelocityX = acceleration;
+            goodLocation = false;
+        } else if(playerController.ballModeOn == true)
+        {
+            _rigidBody.linearVelocityX = 0;
         }
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void Facing()
     {
-        if (playerController.ballModeOn == true && collider.gameObject.CompareTag("Player"))
+        if ((_rigidBody.linearVelocityX > 0 && !isRight) || (_rigidBody.linearVelocityX < 0 && isRight))
         {
-            Destroy(collider.gameObject);
+            isRight = !isRight;
+            transform.Rotate(0f, 180f, 0f);
+            castCheckPlayer.x *= -1;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (playerController.ballModeOn == true)
+            {
+                health.Kill();
+            }
+            else if (playerController.ballModeOn == false)
+            {
+                player.GetComponent<Health>().Kill();
+            }
+
         }
     }
 

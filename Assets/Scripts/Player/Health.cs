@@ -29,7 +29,7 @@ namespace Player
                 ResetHealth();
             }
         }
-
+        
         void OnHit()
         {
             hearts --;

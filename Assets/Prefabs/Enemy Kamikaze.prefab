@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2880455564206191574}
   - component: {fileID: 2634044167279669847}
   - component: {fileID: 975478607259097851}
-  - component: {fileID: 3132521312405707515}
   - component: {fileID: 4490851865561864424}
   - component: {fileID: -8441831263991121886}
   - component: {fileID: 1299720690470120057}
+  - component: {fileID: -1989148708875288718}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Kamikaze
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,32 +142,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3132521312405707515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759419789641422888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02448618d4956745b509075bb623761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  groundCheckBox: {x: 0.5, y: 0.1}
-  castDistance: {x: 0.75, y: -0.5, z: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  playerCheckBox: {x: 7, y: 1}
-  castCheckPlayer: {x: 3, y: 0, z: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  acceleration: 7.5
-  velocity: 2.5
-  player: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!50 &4490851865561864424
 Rigidbody2D:
   serializedVersion: 5
@@ -223,3 +197,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Death
   gameManager: {fileID: 0}
   followPlayer: {fileID: 0}
+--- !u!114 &-1989148708875288718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759419789641422888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9005c588f24aa246801a7b485b6694f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyControllerKamikaze
+  groundCheckBox: {x: 0.5, y: 0.1}
+  castDistance: {x: 0.75, y: -0.5, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  playerCheckBox: {x: 7, y: 1}
+  castCheckPlayer: {x: 3, y: 0, z: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  acceleration: 7.5
+  velocity: 2.5
+  player: {fileID: 0}
+  playerController: {fileID: 0}
