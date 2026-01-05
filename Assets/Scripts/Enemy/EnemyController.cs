@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using Player;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private bool isGrounded = true;
     private bool seePlayer = false;
+    private bool isRight = true;
 
     [SerializeField] private Vector2 groundCheckBox;
     [SerializeField] private Vector3 castDistance;
@@ -35,18 +37,19 @@ public class EnemyController : MonoBehaviour
         Patrol();
         Attack();
         Escape();
+        Facing();
     }
 
     private void Patrol()
     {
-        _rigidBody.linearVelocityX = _rigidBody.linearVelocityX >= 0 ? velocity : -velocity;
-
-        if(seePlayer == false && isGrounded == false && playerController.ballModeOn == false)
+        if (seePlayer == false)
         {
-            transform.Rotate(0f, 180f, 0f);
-            castDistance.x *= -1;
-            castCheckPlayer.x *= -1;
-            _rigidBody.linearVelocityX *= -1;
+            _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? velocity : -velocity;
+
+            if (isGrounded == false && playerController.ballModeOn == false)
+            {
+                _rigidBody.linearVelocityX *= -1;
+            }
         }
     }
 
@@ -54,7 +57,10 @@ public class EnemyController : MonoBehaviour
     {
         if (seePlayer == true && isGrounded == true && playerController.ballModeOn == false)
         {
-            _rigidBody.linearVelocityX = _rigidBody.linearVelocityX >= 0 ? acceleration : -acceleration;
+            _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? acceleration : -acceleration;
+        } else if (seePlayer == true && isGrounded == false && playerController.ballModeOn == false)
+        {
+            _rigidBody.linearVelocityX = 0;
         }
     }
 
@@ -62,7 +68,20 @@ public class EnemyController : MonoBehaviour
     {
         if (isGrounded == true && playerController.ballModeOn == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * acceleration * Time.deltaTime);
+            transform.Rotate(0f, 180f, 0f);
+            castDistance.x *= -1;
+            castCheckPlayer.x *= -1;
+        }
+    }
+
+    private void Facing()
+    {
+        if ((_rigidBody.linearVelocityX > 0 && !isRight) ||(_rigidBody.linearVelocityX < 0 && isRight))
+        {
+            isRight = !isRight;
+            transform.Rotate(0f, 180f, 0f);
+            castDistance.x *= -1;
+            castCheckPlayer.x *= -1;
         }
     }
 
