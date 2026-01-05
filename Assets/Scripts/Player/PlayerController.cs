@@ -90,6 +90,12 @@ namespace Player
                 changingMode = true;
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.linearVelocity = Vector2.zero;
+
+                if(GetComponent<SoundManager>() != null)
+                {
+                    GetComponent<SoundManager>().PlaySound("Carga", 1f, 0.1f, 0.4f);
+                }
+
                 return true;
             }
             return false;
@@ -103,6 +109,12 @@ namespace Player
             if (ballModeOn)
             {
                 StartBallMode();
+                if (GetComponent<SoundManager>() != null)
+                {
+                    SoundManager s = GetComponent<SoundManager>();
+                    s.StopSound();
+                    s.PlaySound("Launch", 1f, 0.05f, 0.1f);
+                }
             }
             else
             {
@@ -179,9 +191,14 @@ namespace Player
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.GetComponent<PointGiver>())
+            if (ballModeOn)
             {
-                if (ballModeOn)
+                if (GetComponent<SoundManager>() != null)
+                {
+                    GetComponent<SoundManager>().PlaySound("Pim", 0.6f, 0.1f, 0.2f);
+                }
+
+                if (collision.gameObject.GetComponent<PointGiver>())
                 {
                     gameManager.addPoints(collision.gameObject.GetComponent<PointGiver>().pointsGiven);
                 }

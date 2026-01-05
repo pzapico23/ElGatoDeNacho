@@ -59,4 +59,10 @@ public class SoundManager : MonoBehaviour
         controlAudio.pitch = finalPitch;
         controlAudio.PlayOneShot(clip, finalVolume);
     }
-}
+
+    public void StopSound()
+    {
+        controlAudio.Stop();
+    }
+
+    }

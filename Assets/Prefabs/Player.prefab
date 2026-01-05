@@ -775,6 +775,12 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 31fe7cd3c7a1e5d4cb4754e14ccafd2d, type: 3}
   - clave: Landing
     audio: {fileID: 8300000, guid: 1537048bc87e10e48a89add52c36bf78, type: 3}
+  - clave: Pim
+    audio: {fileID: 8300000, guid: d8c34cd419b8998478099127ab1c4a21, type: 3}
+  - clave: Carga
+    audio: {fileID: 8300000, guid: 7e91afb424a6c14479aa190a0aee5221, type: 3}
+  - clave: Launch
+    audio: {fileID: 8300000, guid: 068dbe3684d91474ca017163f795eada, type: 3}
 --- !u!95 &5227509852745917251
 Animator:
   serializedVersion: 7

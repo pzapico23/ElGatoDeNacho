@@ -24,6 +24,15 @@ public class FlippersController : MonoBehaviour
     public void changeState(bool v)
     {
         flipperActivated = v;
+
+        //si lo activo, sonido
+        if (v)
+        {
+            if (GetComponent<SoundManager>() != null)
+            {
+                GetComponent<SoundManager>().PlaySound("Palanca", 1f, 0.05f, 0.1f);
+            }
+        }
     }
 
     public void OnEnable()
