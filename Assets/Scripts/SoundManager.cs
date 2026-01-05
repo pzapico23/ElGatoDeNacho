@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class AudioEntry
 {
-    public string clave;
+    public string clave;    //a ver si consigo hacer multiinstrumentos (todos van a tener la misma probabilidad es para cosas como los pasos)
     public AudioClip audio;
 }
 

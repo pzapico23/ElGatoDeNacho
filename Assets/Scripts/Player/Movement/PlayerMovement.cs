@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GetComponent<SoundManager>() != null)
             {
-                GetComponent<SoundManager>().PlaySound("Salto", 0.5f, 0.1f, 0.2f);
+                GetComponent<SoundManager>().PlaySound("Salto", 0.2f, 0.05f, 0.2f);
             }
 
             Debug.Log("SALTO:" + currentCoyoteTime);
