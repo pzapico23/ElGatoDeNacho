@@ -289,7 +289,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1911925541}
     m_Modifications:
     - target: {fileID: 1284912141353681020, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -309,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.96
+      value: -7.46
       objectReference: {fileID: 0}
     - target: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_LocalRotation.w
@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1199,6 +1199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5064cc32c3c9d145835eac76a49bcfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlippersController
+--- !u!4 &1054165312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7913876728459448999, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
+  m_PrefabInstance: {fileID: 96788534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1073542872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5128490594039831304, guid: 150f18589163e6b44a3e51050231f728, type: 3}
@@ -1664,6 +1669,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
+--- !u!4 &1351893042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
+  m_PrefabInstance: {fileID: 1603823036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1368133362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3749321513446666098, guid: 47a7d1a47eb43d244a6811b5691d8ced, type: 3}
@@ -1942,7 +1952,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1911925541}
     m_Modifications:
     - target: {fileID: 980287086010543017, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_Name
@@ -1954,11 +1964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.96
+      value: -7.46
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1966,11 +1976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2358,6 +2368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa32ab39f502e794fb6df3e17fb8ecae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowPlayer
+--- !u!4 &1911925541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2494765202362618349, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+  m_PrefabInstance: {fileID: 8797488655859435346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1919096680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2607,7 +2622,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2494765202362618349, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1054165312}
+    - targetCorrespondingSourceObject: {fileID: 2494765202362618349, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1351893042}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c160089d08467a041bb3944ca43f027f, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -2620,6 +2641,4 @@ SceneRoots:
   - {fileID: 1110522280}
   - {fileID: 435290284}
   - {fileID: 321876083}
-  - {fileID: 96788534}
-  - {fileID: 1603823036}
   - {fileID: 1773604400}
