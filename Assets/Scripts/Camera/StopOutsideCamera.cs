@@ -54,7 +54,6 @@ public class StopOutsideCamera : MonoBehaviour
         if (transform.position.y - halfHeight <= bottomLeft.y)
         {
             transform.GetComponent<Health>().Kill();
-            Debug.Log("Death by camera");
         }
     }
 

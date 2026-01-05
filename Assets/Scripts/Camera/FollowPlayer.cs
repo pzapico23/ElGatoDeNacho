@@ -2,25 +2,23 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]
-    private Transform player;
-    [SerializeField]
-    private Vector3 offset;
-    [SerializeField]
-    private float damping;
+    [SerializeField] private Transform player;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float damping;
+    [SerializeField] private PhysicsMaterial2D bounceMaterial;
+    [SerializeField] private float boundaryWidth = 100f;
+    [SerializeField] private float boundaryThickness = 1f;
 
     private Vector3 lastPosition;
     private Vector3 initialPosition;
-
     private bool isFollowing = true;
+    private GameObject topBoundaryObject;
 
     void Start()
     {
         initialPosition = transform.position;    
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (isFollowing)
@@ -40,6 +38,14 @@ public class FollowPlayer : MonoBehaviour
     public void SetIsFollowing(bool isFollowing)
     {
         this.isFollowing = isFollowing;
+
+        if (!isFollowing)
+        {
+            CreateTopBoundary();
+        } else
+        {
+            DestroyTopBoundary();
+        }
     }
 
     public void SnapToPlayer()
@@ -61,5 +67,33 @@ public class FollowPlayer : MonoBehaviour
     {
         transform.position = initialPosition;
         lastPosition = initialPosition;
+    }
+
+    void CreateTopBoundary()
+    {
+        topBoundaryObject = new GameObject("TopCameraBoundary");
+        topBoundaryObject.layer = LayerMask.NameToLayer("Boundary");
+
+        BoxCollider2D topBoundaryCollider = topBoundaryObject.AddComponent<BoxCollider2D>();
+        topBoundaryCollider.size = new Vector2(boundaryWidth, boundaryThickness);
+
+        if (bounceMaterial != null)
+        {
+            topBoundaryCollider.sharedMaterial = bounceMaterial;
+        }
+
+        topBoundaryObject.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y + Camera.main.orthographicSize,
+            0f
+        );
+    }
+
+    void DestroyTopBoundary()
+    {
+        if (topBoundaryObject != null)
+        {
+            Destroy(topBoundaryObject);
+        }
     }
 }

@@ -293,11 +293,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1284912141353681020, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 18.285198
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1284912141353681020, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -8.809406
+      value: -5.96
       objectReference: {fileID: 0}
     - target: {fileID: 4156911869773892684, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_Name
@@ -2000,11 +2000,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000737839095302682, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -20.172607
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 6000737839095302682, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -7.032478
+      value: -5.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2188,14 +2188,6 @@ PrefabInstance:
       propertyPath: flippersControllerRight
       value: 
       objectReference: {fileID: 1054165311}
-    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303387111930401015, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: m_UIInputModule
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2576,6 +2568,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1472308090736284180, guid: c160089d08467a041bb3944ca43f027f, type: 3}
+      propertyPath: bounceMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 0083968f732c69845addc51aaf98875d, type: 2}
     - target: {fileID: 2494765202362618349, guid: c160089d08467a041bb3944ca43f027f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

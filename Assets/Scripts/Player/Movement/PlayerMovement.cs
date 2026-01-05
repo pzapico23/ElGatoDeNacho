@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         if (wasGrounded && !isGrounded && !isJumping)
         {
             currentCoyoteTime += Time.deltaTime;
-            Debug.Log(currentCoyoteTime);
+            // Debug.Log(currentCoyoteTime);
         }
         else if(coyoteTime > 0)
         {
@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<SoundManager>().PlaySound("Salto", 0.2f, 0.05f, 0.2f);
             }
 
-            Debug.Log("SALTO:" + currentCoyoteTime);
+            // Debug.Log("SALTO:" + currentCoyoteTime);
             rb.AddForceY(jumpStrength);
             isJumping = true;
             currentCoyoteTime = 0;
@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         else if(isJumHeld &&  isJumping && !isGrounded && extraForceTimes < 3)
         {
             rb.AddForceY(holdJumpStrength);
-            Debug.Log(isJumHeld);
+            // Debug.Log(isJumHeld);
             extraForceTimes++;
         }
         else  if(isGrounded && (inpuBuffer < inputBufferTime && inpuBuffer != 0))
