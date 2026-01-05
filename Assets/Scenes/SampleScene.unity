@@ -1296,6 +1296,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 212591392}
     - target: {fileID: 3132521312405707515, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
+      propertyPath: castDistance.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132521312405707515, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
+      propertyPath: groundCheckBox.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132521312405707515, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1964885572}

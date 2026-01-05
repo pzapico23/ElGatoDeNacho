@@ -158,7 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   playerCheckBox: {x: 7, y: 1}
-  castCheckPlayer: {x: 2.33, y: 0, z: 0}
+  castCheckPlayer: {x: 3, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

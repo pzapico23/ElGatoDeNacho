@@ -39,6 +39,8 @@ public class EnemyController : MonoBehaviour
 
     private void Patrol()
     {
+        _rigidBody.linearVelocityX = _rigidBody.linearVelocityX >= 0 ? velocity : -velocity;
+
         if(seePlayer == false && isGrounded == false && playerController.ballModeOn == false)
         {
             transform.Rotate(0f, 180f, 0f);
@@ -52,7 +54,7 @@ public class EnemyController : MonoBehaviour
     {
         if (seePlayer == true && isGrounded == true && playerController.ballModeOn == false)
         {
-            _rigidBody.linearVelocityX = acceleration;
+            _rigidBody.linearVelocityX = _rigidBody.linearVelocityX >= 0 ? acceleration : -acceleration;
         }
     }
 
