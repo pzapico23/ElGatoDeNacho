@@ -1429,6 +1429,10 @@ PrefabInstance:
       propertyPath: flippersControllerRight
       value: 
       objectReference: {fileID: 52014538}
+    - target: {fileID: 5396549358947794713, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_Name
       value: Player

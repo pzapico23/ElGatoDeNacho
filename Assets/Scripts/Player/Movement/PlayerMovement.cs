@@ -94,6 +94,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if(!wasGrounded && isGrounded)
         {
+
+            if (GetComponent<SoundManager>() != null)
+            {
+                GetComponent<SoundManager>().PlaySound("Landing", 1f, 0.1f, 0.2f);
+            }
+
             isJumping = false;
             animator.SetBool("hasLanded", true);
         }
@@ -155,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GetComponent<SoundManager>() != null)
             {
-                GetComponent<SoundManager>().PlaySound("Salto", 0.5f, 0.1f, 0.3f);
+                GetComponent<SoundManager>().PlaySound("Salto", 0.5f, 0.1f, 0.2f);
             }
 
             Debug.Log("SALTO:" + currentCoyoteTime);

@@ -772,7 +772,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   audioEntries:
   - clave: Salto
-    audio: {fileID: 8300000, guid: 80c253e2df3efc7419435e108dba4795, type: 3}
+    audio: {fileID: 8300000, guid: 31fe7cd3c7a1e5d4cb4754e14ccafd2d, type: 3}
+  - clave: Landing
+    audio: {fileID: 8300000, guid: 1537048bc87e10e48a89add52c36bf78, type: 3}
 --- !u!95 &5227509852745917251
 Animator:
   serializedVersion: 7
