@@ -11,8 +11,14 @@ public class FollowPlayer : MonoBehaviour
     private float damping;
 
     private Vector3 lastPosition;
+    private Vector3 initialPosition;
 
     private bool isFollowing = true;
+
+    void Start()
+    {
+        initialPosition = transform.position;    
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -49,5 +55,11 @@ public class FollowPlayer : MonoBehaviour
 
         transform.position = targetPosition;
         lastPosition = transform.position;
+    }
+
+    public void ResetToInitialPosition()
+    {
+        transform.position = initialPosition;
+        lastPosition = initialPosition;
     }
 }

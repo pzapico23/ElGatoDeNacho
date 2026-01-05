@@ -11,7 +11,7 @@ public class Death : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
-            RespawnPlayer(gameManager.CurrentSpawnPoint.position);
+            RespawnPlayer(gameManager.CurrentSpawnPoint.position, false);
         } else
         {
             Destroy(gameObject);
@@ -20,10 +20,10 @@ public class Death : MonoBehaviour
 
     void OnFallen()
     {
-        RespawnPlayer(gameManager.LastGroundPosition);
+        RespawnPlayer(gameManager.LastGroundPosition, true);
     }
 
-    void RespawnPlayer(Vector3 spawnPoint)
+    void RespawnPlayer(Vector3 spawnPoint, bool hasFallen)
     {
         transform.position = spawnPoint;
 
@@ -37,7 +37,14 @@ public class Death : MonoBehaviour
 
         if (followPlayer)
         {
-            followPlayer.SnapToPlayer();
+            if (hasFallen)
+            {
+                followPlayer.SnapToPlayer();
+            }
+            else
+            {
+                followPlayer.ResetToInitialPosition();
+            }
         }
     }
 }
