@@ -46,6 +46,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        CheckGround();
+
+        if (!wasGrounded && isGrounded)
+        {
+
+            if (GetComponent<SoundManager>() != null)
+            {
+                GetComponent<SoundManager>().PlaySound("Landing", 1f, 0.1f, 0.2f);
+            }
+
+            isJumping = false;
+            animator.SetBool("hasLanded", true);
+        }
+
         if (isJumping)
         {
             animator.SetBool("isJumping", true);
@@ -67,17 +81,17 @@ public class PlayerMovement : MonoBehaviour
         if (rb.linearVelocity.x > 0.1f)
             GetComponent<SpriteRenderer>().flipX = true; 
         else if (rb.linearVelocity.x < -0.1f)
-            GetComponent<SpriteRenderer>().flipX = false;  
+            GetComponent<SpriteRenderer>().flipX = false;
+
+        wasGrounded = isGrounded;
     }
 
     void FixedUpdate()
     {
-        CheckGround();
         Jump();
         Fall();
         Move();
        
-        wasGrounded = isGrounded;
         jusJumped = false;
     }
 
@@ -92,17 +106,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentCoyoteTime += Time.deltaTime;
         }
-        if(!wasGrounded && isGrounded)
-        {
-
-            if (GetComponent<SoundManager>() != null)
-            {
-                GetComponent<SoundManager>().PlaySound("Landing", 1f, 0.1f, 0.2f);
-            }
-
-            isJumping = false;
-            animator.SetBool("hasLanded", true);
-        }
         if (isGrounded)
         {
             currentCoyoteTime = 0;
@@ -112,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
         {
             inpuBuffer += Time.deltaTime;
         }
-        
     }
 
     internal void OnMove(Vector2 vector2)
@@ -215,5 +217,4 @@ public class PlayerMovement : MonoBehaviour
     { 
         get { return isGrounded; }
     }
-
 }
