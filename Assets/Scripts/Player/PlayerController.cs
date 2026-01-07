@@ -44,6 +44,7 @@ namespace Player
         private Animator animator;
 
 
+
         void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -73,6 +74,10 @@ namespace Player
 
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, currentEnd);
+                if(currentHoldDistance == maxAimDistance)
+                {
+                    GetComponent<SoundManager>().StopSound();
+                }
             }
             else
             {
@@ -173,6 +178,7 @@ namespace Player
             if(currentBallMeter <= 0)
             {
                 StopBallMode();
+                ballModeOn = !ballModeOn;
             }
         }
         private void IncreaseBallMeter()
