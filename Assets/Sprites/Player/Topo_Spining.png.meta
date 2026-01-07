@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: f0747aaf2de8c1947bc98cc62e7623d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3468980029243408297
+    second: Topo_Spining_0
+  - first:
+      213: -8774372741535273572
+    second: Topo_Spining_1
+  - first:
+      213: 1664008038505757852
+    second: Topo_Spining_2
+  - first:
+      213: -8047628043815715965
+    second: Topo_Spining_3
+  - first:
+      213: -3088165401354649770
+    second: Topo_Spining_4
+  - first:
+      213: -3452491465247243079
+    second: Topo_Spining_5
+  - first:
+      213: 394311110277429537
+    second: Topo_Spining_6
+  - first:
+      213: 4860618402055408317
+    second: Topo_Spining_7
+  - first:
+      213: 4529684879817071107
+    second: Topo_Spining_8
+  - first:
+      213: 2213584473815525727
+    second: Topo_Spining_9
+  - first:
+      213: 1659546849552064560
+    second: Topo_Spining_10
+  - first:
+      213: -8665257861666321493
+    second: Topo_Spining_11
+  - first:
+      213: -1613478063283768799
+    second: Topo_Spining_12
+  - first:
+      213: -57155620011586111
+    second: Topo_Spining_13
+  - first:
+      213: -7472970752372573633
+    second: Topo_Spining_14
+  - first:
+      213: 3685712095250436470
+    second: Topo_Spining_15
+  - first:
+      213: 7822969070012656886
+    second: Topo_Spining_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Topo_Spining_0
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 39
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750c508fa05bbdfc0800000000000000
+      internalID: -3468980029243408297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_1
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 31
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d6bedea7a2b3680800000000000000
+      internalID: -8774372741535273572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_2
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 22
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9cb786ae7eb71710800000000000000
+      internalID: 1664008038505757852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_3
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 21
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b74ebaee4115090800000000000000
+      internalID: -8047628043815715965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_4
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 21
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fba94ede1a425d0800000000000000
+      internalID: -3088165401354649770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_5
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 16
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4cedfed494610d0800000000000000
+      internalID: -3452491465247243079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_6
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 28
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129731b9ddfd87500800000000000000
+      internalID: 394311110277429537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_7
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 31
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba4d3b1fa2647340800000000000000
+      internalID: 4860618402055408317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_8
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 38
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a54fd166cacde30800000000000000
+      internalID: 4529684879817071107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_9
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 38
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f592812d95b38be10800000000000000
+      internalID: 2213584473815525727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_10
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 314
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0306ba72115e70710800000000000000
+      internalID: 1659546849552064560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 584
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: babc734a2e1deb780800000000000000
+      internalID: -8665257861666321493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_12
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 720
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122f5110046cb99e0800000000000000
+      internalID: -1613478063283768799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_13
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 810
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdca443441f43ff0800000000000000
+      internalID: -57155620011586111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_14
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 857
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3af2f7b1bcaa4890800000000000000
+      internalID: -7472970752372573633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_15
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 900
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67153c57f97462330800000000000000
+      internalID: 3685712095250436470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Topo_Spining_16
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 914
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fce8fadbe4c09c60800000000000000
+      internalID: 7822969070012656886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2b87b2306442c244c858fa086d41fa9a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Topo_Spining_0: -3468980029243408297
+      Topo_Spining_1: -8774372741535273572
+      Topo_Spining_10: 1659546849552064560
+      Topo_Spining_11: -8665257861666321493
+      Topo_Spining_12: -1613478063283768799
+      Topo_Spining_13: -57155620011586111
+      Topo_Spining_14: -7472970752372573633
+      Topo_Spining_15: 3685712095250436470
+      Topo_Spining_16: 7822969070012656886
+      Topo_Spining_2: 1664008038505757852
+      Topo_Spining_3: -8047628043815715965
+      Topo_Spining_4: -3088165401354649770
+      Topo_Spining_5: -3452491465247243079
+      Topo_Spining_6: 394311110277429537
+      Topo_Spining_7: 4860618402055408317
+      Topo_Spining_8: 4529684879817071107
+      Topo_Spining_9: 2213584473815525727
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

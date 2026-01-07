@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 11b377d50d224ca4d86639f61a1e823d
+guid: f88eb9adc69be474b884fc4b0b31b837
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4099586014780652867
-    second: Topo_Salto_0
-  - first:
-      213: -87903079462558589
-    second: Topo_Salto_1
+      213: 199249360466117110
+    second: Floor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Topo_Salto_0
+      name: Floor_0
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 177
-        width: 174
-        height: 198
+        x: 240
+        y: 0
+        width: 1106
+        height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34df82982c7a4e830800000000000000
-      internalID: 4099586014780652867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Topo_Salto_1
-      rect:
-        serializedVersion: 2
-        x: 1274
-        y: 33
-        width: 147
-        height: 176
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 384a8fd6d94b7cef0800000000000000
-      internalID: -87903079462558589
+      spriteID: 6f18e48dc30e3c200800000000000000
+      internalID: 199249360466117110
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Topo_Salto_0: 4099586014780652867
-      Topo_Salto_1: -87903079462558589
+      Floor_0: 199249360466117110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

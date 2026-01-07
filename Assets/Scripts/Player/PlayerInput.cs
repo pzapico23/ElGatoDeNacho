@@ -29,16 +29,7 @@ namespace Player
         public void OnModeChange(CallbackContext ctx)
         {
             if (ctx.performed)
-                if (playerController.OnModeChangeStart())
-                {
-                    flippersControllerLeft.enabled = true;
-                    flippersControllerRight.enabled = true;
-                }
-                else
-                {
-                    flippersControllerLeft.enabled = false;
-                    flippersControllerRight.enabled = false;
-                }
+                playerController.OnModeChangeStart();
             if (ctx.canceled)
                 playerController.OnModeChangeFinish();
         }

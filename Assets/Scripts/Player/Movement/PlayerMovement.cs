@@ -79,9 +79,20 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isFalling", false);
         }
         if (rb.linearVelocity.x > 0.1f)
-            GetComponent<SpriteRenderer>().flipX = true; 
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            animator.SetBool("isRunning", true);
+
+        }
         else if (rb.linearVelocity.x < -0.1f)
+        {
+            animator.SetBool("isRunning", true);
             GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
 
         wasGrounded = isGrounded;
     }
@@ -173,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
             inpuBuffer = 0;
             
         }
-        else if(isJumHeld &&  isJumping && !isGrounded && extraForceTimes < 3)
+        else if(isJumHeld &&  isJumping && extraForceTimes < 3)
         {
             rb.AddForceY(holdJumpStrength);
             // Debug.Log(isJumHeld);

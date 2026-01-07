@@ -26,6 +26,8 @@ namespace Player
         [SerializeField] private GameManager gameManager;
         [SerializeField] private float meterLossPerSecond;
         [SerializeField] private float meterGainPerSecond;
+        [SerializeField] private FlippersController flippersControllerLeft;
+        [SerializeField] private FlippersController flippersControllerRight;
 
 
 
@@ -39,6 +41,8 @@ namespace Player
         private bool changingMode = false;
         private Vector3 currentEnd;
         private float currentHoldDistance = 0;
+        private Animator animator;
+
 
         void Start()
         {
@@ -49,6 +53,7 @@ namespace Player
             currentBallMeter = startingBallMeter;
             rigidbody2D.gravityScale = gravityScale;
             rigidbody2D.mass = massScale;
+            animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -84,6 +89,7 @@ namespace Player
             if (!ballModeOn)
             {
                 spriteRenderer.sprite = ballSprite;
+                animator.SetBool("isBallMode", true);
                 boxCollider2D.enabled = false;
                 circleCollider2D.enabled = true;
                 playerMovement.enabled = false;
@@ -138,12 +144,17 @@ namespace Player
             rigidbody2D.gravityScale = gravityScale;
             rigidbody2D.mass = massScale;
             transform.rotation = Quaternion.identity;
+            animator.SetBool("isBallMode", false);
+            animator.SetBool("canBall", true);
+            flippersControllerLeft.enabled = false;
+            flippersControllerRight.enabled = false;
         }
 
         private void StartBallMode()
         {
             InvokeRepeating("DecreaseBallMeter", 1f, 1f);
             CancelInvoke("IncreaseBallMeter");
+            animator.SetBool("canBall", false);
             rigidbody2D.freezeRotation = false;
             cameraFollow.SetIsFollowing(false);
             rigidbody2D.gravityScale = gravityScaleBall;
@@ -151,7 +162,8 @@ namespace Player
             Vector2 direction = (new Vector2(currentEnd.x, currentEnd.y) - rigidbody2D.position).normalized;
             rigidbody2D.AddForce(direction * shootForce * (currentHoldDistance / maxAimDistance));
             changingMode = false;
-
+            flippersControllerLeft.enabled = true;
+            flippersControllerRight.enabled = true;
 
         }
 
