@@ -5,14 +5,13 @@ using Player;
 
 public class EnemyBuhoController : MonoBehaviour
 {
-    private BoxCollider _boxCollider;
     private Rigidbody2D _rigidBody;
     private bool seePlayer = false;
     private Vector3 _originalPosition;
     private Vector3 _upRange;
     private Vector3 _downRange;
     private bool isRight = true;
-    private bool goodLocation = true;
+    private bool needReturn = false;
     private Health health;
 
     [SerializeField] private float patrolRange;
@@ -27,13 +26,13 @@ public class EnemyBuhoController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _boxCollider = GetComponent<BoxCollider>();
         _rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
         _rigidBody.linearVelocityX = velocity;
         _originalPosition = transform.position;
         _upRange = new Vector3(transform.position.x + patrolRange, transform.position.y , transform.position.z);
         _downRange = new Vector3(transform.position.x - patrolRange, transform.position.y, transform.position.z);
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame
@@ -49,7 +48,7 @@ public class EnemyBuhoController : MonoBehaviour
 
     private void Patrol()
     {
-        if (seePlayer == false && playerController.ballModeOn == false && goodLocation == true)
+        if (seePlayer == false && playerController.ballModeOn == false && !needReturn)
         {
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? velocity : -velocity;
             
@@ -63,41 +62,60 @@ public class EnemyBuhoController : MonoBehaviour
 
     private void Return()
     {
-        if(seePlayer == false && playerController.ballModeOn == false && goodLocation == false)
+        if(seePlayer == false && playerController.ballModeOn == false && needReturn)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _originalPosition, velocity * Time.deltaTime);
-            goodLocation = true;
+            if ((transform.position.x < _originalPosition.x && !isRight) || (transform.position.x > _originalPosition.x && isRight))
+            {
+                isRight = !isRight;
+                transform.Rotate(0f, 180f, 0f);
+                castCheckPlayer.x *= -1;
+            }
+            transform.position = Vector3.MoveTowards(transform.position, _originalPosition, acceleration * Time.deltaTime);
+            if (transform.position == _originalPosition)
+            {
+                needReturn = false;
+            }
         }
     }
 
     private void Attack()
     {
         if (seePlayer == true && playerController.ballModeOn == false)
-       { 
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
-            goodLocation = false;
+        {
+            if (transform.position.x > _downRange.x && transform.position.x < _upRange.x)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
+                needReturn = true;
+            }
+            
         }
     }
 
     private void Escape()
     {
-        if (playerController.ballModeOn == true && transform.position.x < player.transform.position.x)
+        if (playerController.ballModeOn == true)
         {
-            _rigidBody.linearVelocityX = -acceleration;
-            goodLocation = false;
-        } else if (playerController.ballModeOn == true && transform.position.x > player.transform.position.x)
-        {
-            _rigidBody.linearVelocityX = acceleration;
-            goodLocation = false;
-        } else if(playerController.ballModeOn == true)
-        {
-            _rigidBody.linearVelocityX = 0;
+            if (transform.position.x < player.transform.position.x && transform.position.x > _downRange.x)
+            {
+                _rigidBody.linearVelocityX = -acceleration;
+                needReturn = true;
+            }
+            else if (transform.position.x > player.transform.position.x && transform.position.x < _upRange.x)
+            {
+                _rigidBody.linearVelocityX = acceleration;
+                needReturn = true;
+            }
+            else
+            {
+                _rigidBody.linearVelocityX = 0;
+                needReturn = true;
+            }
         }
     }
 
     private void Facing()
     {
-        if ((_rigidBody.linearVelocityX > 0 && !isRight) || (_rigidBody.linearVelocityX < 0 && isRight))
+        if (((_rigidBody.linearVelocityX > 0 && !isRight) || (_rigidBody.linearVelocityX < 0 && isRight)) && !needReturn)
         {
             isRight = !isRight;
             transform.Rotate(0f, 180f, 0f);

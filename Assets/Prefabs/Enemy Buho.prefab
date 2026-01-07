@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 975478607259097851}
   - component: {fileID: 4490851865561864424}
   - component: {fileID: -7765394577819353452}
+  - component: {fileID: -261984856416820570}
+  - component: {fileID: 1624020266898460641}
   m_Layer: 0
   m_Name: Enemy Buho
   m_TagString: Enemy
@@ -189,3 +191,31 @@ MonoBehaviour:
   acceleration: 7
   player: {fileID: 0}
   playerController: {fileID: 0}
+--- !u!114 &-261984856416820570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759419789641422888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69121f98c2d4e3bba025b92c60dec85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.Health
+  hearts: 1
+  maxHearts: 1
+--- !u!114 &1624020266898460641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759419789641422888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2256a287be1aebe4ca74706fdb94f021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Death
+  gameManager: {fileID: 0}
+  followPlayer: {fileID: 0}

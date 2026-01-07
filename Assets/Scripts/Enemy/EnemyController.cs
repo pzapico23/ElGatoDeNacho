@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
         _rigidBody.linearVelocityX = velocity;
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame

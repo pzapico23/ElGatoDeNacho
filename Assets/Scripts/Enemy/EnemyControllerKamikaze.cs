@@ -27,6 +27,7 @@ public class EnemyControllerKamikaze : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
         _rigidBody.linearVelocityX = velocity;
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame
@@ -58,7 +59,6 @@ public class EnemyControllerKamikaze : MonoBehaviour
         if (seePlayer == true && playerController.ballModeOn == false)
         {
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? acceleration : -acceleration;
-            transform.rotation = Quaternion.identity;
         }
     }
 
