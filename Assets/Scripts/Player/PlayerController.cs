@@ -42,7 +42,7 @@ namespace Player
         private Vector3 currentEnd;
         private float currentHoldDistance = 0;
         private Animator animator;
-
+        private SoundManager sm;
 
 
         void Start()
@@ -55,6 +55,7 @@ namespace Player
             rigidbody2D.gravityScale = gravityScale;
             rigidbody2D.mass = massScale;
             animator = GetComponent<Animator>();
+            sm = GetComponent<SoundManager>();
         }
 
         // Update is called once per frame
@@ -76,7 +77,7 @@ namespace Player
                 line.SetPosition(1, currentEnd);
                 if(currentHoldDistance == maxAimDistance)
                 {
-                    GetComponent<SoundManager>().StopSound();
+                    sm.StopSound();
                 }
             }
             else
@@ -102,9 +103,9 @@ namespace Player
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.linearVelocity = Vector2.zero;
 
-                if(GetComponent<SoundManager>() != null)
+                if(sm != null)
                 {
-                    GetComponent<SoundManager>().PlaySound("Carga", 1f, 0.1f, 0.4f);
+                    sm.PlaySound("Carga", 1f, 0.1f, 0.4f);
                 }
 
                 return true;
@@ -120,11 +121,10 @@ namespace Player
             if (ballModeOn)
             {
                 StartBallMode();
-                if (GetComponent<SoundManager>() != null)
+                if (sm != null)
                 {
-                    SoundManager s = GetComponent<SoundManager>();
-                    s.StopSound();
-                    s.PlaySound("Launch", 1f, 0.05f, 0.1f);
+                    sm.StopSound();
+                    sm.PlaySound("Launch", 1f, 0.05f, 0.1f);
                 }
             }
             else
@@ -211,9 +211,9 @@ namespace Player
         {
             if (ballModeOn)
             {
-                if (GetComponent<SoundManager>() != null)
+                if (sm != null)
                 {
-                    GetComponent<SoundManager>().PlaySound("Pim", 0.6f, 0.1f, 0.2f);
+                    sm.PlaySound("Pim", 0.6f, 0.1f, 0.2f);
                 }
 
                 if (collision.gameObject.GetComponent<PointGiver>())
