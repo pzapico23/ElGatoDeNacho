@@ -31,6 +31,11 @@ public class EnemyControllerKamikaze : MonoBehaviour
         _rigidBody.freezeRotation = true;
     }
 
+    public void Init(GameObject player)
+    {
+        this.player = player;
+        this.playerController = player.GetComponent<PlayerController>();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

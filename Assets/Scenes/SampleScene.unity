@@ -213,6 +213,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492504111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8547575776463276370, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+  m_PrefabInstance: {fileID: 2102241116751788709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68eada9d919b85d4b99263778f8fbeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeartsUI
 --- !u!114 &519420033 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1472308090736284180, guid: c160089d08467a041bb3944ca43f027f, type: 3}
@@ -660,6 +671,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1172402558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -1989148708875288718, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 212591392}
+    - target: {fileID: -1989148708875288718, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1964885572}
+    - target: {fileID: 1299720690470120057, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 581872960}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -51.822727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.188499
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759419789641422888, guid: 90b586e057bb406479132481e41565c0, type: 3}
+      propertyPath: m_Name
+      value: Enemy Kamikaze
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90b586e057bb406479132481e41565c0, type: 3}
 --- !u!114 &1255856762 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4585224934410888731, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
@@ -825,6 +905,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e53d3ee49d746489c4e9ad0cc5b590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+--- !u!114 &1964885580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6766615036214615909, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
+  m_PrefabInstance: {fileID: 3832447419601805749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212591392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69121f98c2d4e3bba025b92c60dec85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.Health
 --- !u!1001 &1950085527419451737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1223,6 +1314,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: heartsUI
+      value: 
+      objectReference: {fileID: 492504111}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: scoreGUI
       value: 
       objectReference: {fileID: 1255856762}
@@ -1230,6 +1325,10 @@ PrefabInstance:
       propertyPath: ballModeBar
       value: 
       objectReference: {fileID: 55351492}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1964885580}
     - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: playerController
       value: 
@@ -1253,11 +1352,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2880455564206191574, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.24
+      value: -64.62
       objectReference: {fileID: 0}
     - target: {fileID: 2880455564206191574, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.59
+      value: -12.27
       objectReference: {fileID: 0}
     - target: {fileID: 2880455564206191574, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1307,6 +1406,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1964885572}
+    - target: {fileID: 4490851865561864424, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5759419789641422888, guid: fbe4bcd4d06d3e54193f988876a5aa1f, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1395,3 +1498,4 @@ SceneRoots:
   - {fileID: 2102241116751788709}
   - {fileID: 321876083}
   - {fileID: 652485518}
+  - {fileID: 1172402558}

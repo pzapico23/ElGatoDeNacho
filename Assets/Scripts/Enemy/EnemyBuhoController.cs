@@ -34,7 +34,11 @@ public class EnemyBuhoController : MonoBehaviour
         _downRange = new Vector3(transform.position.x - patrolRange, transform.position.y, transform.position.z);
         transform.rotation = Quaternion.identity;
     }
-
+    public void Init(GameObject player)
+    {
+        this.player = player;
+        this.playerController = player.GetComponent<PlayerController>();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
