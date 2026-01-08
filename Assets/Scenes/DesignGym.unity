@@ -1670,10 +1670,6 @@ PrefabInstance:
       propertyPath: flippersControllerRight
       value: 
       objectReference: {fileID: 52014538}
-    - target: {fileID: 5396549358947794713, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7012448844951767226, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1717,10 +1713,6 @@ PrefabInstance:
     - target: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367424277611737225, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
-      propertyPath: groundCheckBox.y
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7783190175996375435, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
       propertyPath: gameManager
@@ -1783,6 +1775,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1284912141353681020, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 16.0456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284912141353681020, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -5.96
+      objectReference: {fileID: 0}
     - target: {fileID: 4156911869773892684, guid: d9960ea2a892bac4cae9c62edf34d269, type: 3}
       propertyPath: m_Name
       value: RightFlipper
@@ -1883,6 +1883,14 @@ PrefabInstance:
     - target: {fileID: 4113083988341144634, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000737839095302682, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -16.0448
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000737839095302682, guid: 10afae20e56cdc74192943f07a854d2a, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -5.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
