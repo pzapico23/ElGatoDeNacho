@@ -410,7 +410,7 @@ MonoBehaviour:
     m_Bits: 8
   rb: {fileID: 9063258369876031840}
   coyoteTime: 0.1
-  inputBufferTime: 1.1
+  inputBufferTime: 1.05
 --- !u!114 &6303387111930401015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +614,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   meterLossPerSecond: 5
   meterGainPerSecond: 4
+  flippersControllerLeft: {fileID: 0}
+  flippersControllerRight: {fileID: 0}
   ballModeOn: 0
 --- !u!114 &6766615036214615909
 MonoBehaviour:
