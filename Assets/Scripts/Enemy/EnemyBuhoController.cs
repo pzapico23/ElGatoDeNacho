@@ -39,6 +39,8 @@ public class EnemyBuhoController : MonoBehaviour
         _downRange = new Vector3(transform.position.x - patrolRange, transform.position.y, transform.position.z);
         transform.rotation = Quaternion.identity;
         animator = GetComponent<Animator>();
+        _rigidBody.freezeRotation = true;
+
     }
     public void Init(GameObject player)
     {
@@ -58,8 +60,10 @@ public class EnemyBuhoController : MonoBehaviour
 
     private void Patrol()
     {
+
         if (seePlayer == false && playerController.ballModeOn == false && !needReturn && !attacking)
         {
+
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? velocity : -velocity;
             _rigidBody.linearVelocityY = 0;
             
@@ -83,7 +87,7 @@ public class EnemyBuhoController : MonoBehaviour
 
             _rigidBody.linearVelocity = (_originalPosition - transform.position).normalized * acceleration;
 
-            if (Math.Abs(transform.position.x - _originalPosition.x) < 0.1 && Math.Abs(transform.position.y - _originalPosition.y) < 0.1)
+            if ( Math.Abs(transform.position.y - _originalPosition.y) < 0.1)
             {
                 needReturn = false;
             }
@@ -156,6 +160,8 @@ public class EnemyBuhoController : MonoBehaviour
             else if (playerController.ballModeOn == false)
             {
                 player.GetComponent<Health>().Kill();
+                attacking = false;
+                needReturn = true;
             }
 
         }
@@ -165,7 +171,14 @@ public class EnemyBuhoController : MonoBehaviour
     {
         if (Physics2D.BoxCast(transform.position + castCheckPlayer, playerCheckBox, 0, transform.forward, 0, playerLayer))
         {
-            seePlayer = true;
+            if(attacking || needReturn)
+            {
+                seePlayer = false;
+            }
+            else
+            {
+                seePlayer = true;
+            }
         }
         else
         {
