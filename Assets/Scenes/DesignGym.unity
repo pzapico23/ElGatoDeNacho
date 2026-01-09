@@ -1245,6 +1245,14 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8547575776463276370, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+      propertyPath: fullHeart
+      value: 
+      objectReference: {fileID: 7257727777897515217, guid: cdd7eb39460ccb94f9bc3a396c8313fb, type: 3}
+    - target: {fileID: 8547575776463276370, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+      propertyPath: emptyHeart
+      value: 
+      objectReference: {fileID: 3269381953311479376, guid: 553803457f0afc24d8ce52d6dc111a27, type: 3}
     - target: {fileID: 8681002896442577752, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
       propertyPath: m_Color.b
       value: 0.73018867
