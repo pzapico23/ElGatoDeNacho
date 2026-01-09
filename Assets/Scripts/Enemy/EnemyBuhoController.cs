@@ -13,6 +13,8 @@ public class EnemyBuhoController : MonoBehaviour
     private bool isRight = true;
     private bool needReturn = false;
     private Health health;
+    private Vector3 lastPlayerPosition;
+    private bool attacking = false;
 
     [SerializeField] private float patrolRange;
     [SerializeField] private Vector2 playerCheckBox;
@@ -23,6 +25,7 @@ public class EnemyBuhoController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private float barValue = 15f;
+    [SerializeField] private float maxAimDistance = 10;
 
     private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,16 +58,16 @@ public class EnemyBuhoController : MonoBehaviour
 
     private void Patrol()
     {
-        if (seePlayer == false && playerController.ballModeOn == false && !needReturn)
+        if (seePlayer == false && playerController.ballModeOn == false && !needReturn && !attacking)
         {
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? velocity : -velocity;
+            _rigidBody.linearVelocityY = 0;
             
             if (transform.position.x > _upRange.x || transform.position.x < _downRange.x)
             {
                 _rigidBody.linearVelocityX *= -1;
             }
         }
-
     }
 
     private void Return()
@@ -77,8 +80,10 @@ public class EnemyBuhoController : MonoBehaviour
                 transform.Rotate(0f, 180f, 0f);
                 castCheckPlayer.x *= -1;
             }
-            transform.position = Vector3.MoveTowards(transform.position, _originalPosition, acceleration * Time.deltaTime);
-            if (transform.position == _originalPosition)
+
+            _rigidBody.linearVelocity = (_originalPosition - transform.position).normalized * acceleration;
+
+            if (Math.Abs(transform.position.x - _originalPosition.x) < 0.1 && Math.Abs(transform.position.y - _originalPosition.y) < 0.1)
             {
                 needReturn = false;
             }
@@ -87,19 +92,22 @@ public class EnemyBuhoController : MonoBehaviour
 
     private void Attack()
     {
-        if (seePlayer == true && playerController.ballModeOn == false)
+        if (seePlayer == true && playerController.ballModeOn == false && !attacking)
         {
-            if (transform.position.x > _downRange.x && transform.position.x < _upRange.x)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
-                animator.SetBool("isAttacking", true);
-                needReturn = true;
-            }
-            
+            _rigidBody.linearVelocity = (player.transform.position - transform.position).normalized * acceleration;
+            animator.SetBool("isAttacking", true);
+            attacking = true;
+            lastPlayerPosition = player.transform.position;
         }
-        else
+        else if(!attacking)
         {
             animator.SetBool("isAttacking", false);
+        }
+
+        if (Math.Abs(transform.position.x - lastPlayerPosition.x) < 0.1 && Math.Abs(transform.position.y - lastPlayerPosition.y) < 0.1)
+        {
+            attacking = false;
+            needReturn = true;
         }
     }
 
