@@ -1,6 +1,7 @@
 using System;
 using Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Death : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             RespawnPlayer(gameManager.CurrentSpawnPoint.position, false);
+            SceneManager.LoadScene("Lvl_Nivelin 1");
         } else
         {
             Destroy(gameObject);
