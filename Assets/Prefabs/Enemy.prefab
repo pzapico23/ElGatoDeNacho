@@ -84,12 +84,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -181546771
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -490704229142274322, guid: 3f8acb06836f3b74a9e035830d4de33d, type: 3}
-  m_Color: {r: 0.45164335, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 778870824764516439, guid: 3f8acb06836f3b74a9e035830d4de33d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,17 +132,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09206295, y: 0.3375733}
+  m_Offset: {x: 0.037697554, y: 0.20733452}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4700003, y: 5.09}
+    oldSize: {x: 4.1400003, y: 5.18}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2529507, y: 5.11225}
+  m_Size: {x: 3.5257459, y: 4.7320747}
   m_EdgeRadius: 0
 --- !u!114 &3132521312405707515
 MonoBehaviour:
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   groundCheckBox: {x: 0.5, y: 0.1}
-  castDistance: {x: 1, y: -0.875, z: 0}
+  castDistance: {x: 0.94, y: -0.87, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -166,7 +166,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  acceleration: 11
+  acceleration: 9
   velocity: 2.5
   player: {fileID: 0}
   playerController: {fileID: 0}
