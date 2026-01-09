@@ -21,6 +21,8 @@ public class EnemyControllerKamikaze : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
 
+    private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -65,6 +65,7 @@ public class EnemyController : MonoBehaviour
         if (seePlayer == true && isGrounded == true && playerController.ballModeOn == false)
         {
             _rigidBody.linearVelocityX = _rigidBody.linearVelocityX > 0 ? acceleration : -acceleration;
+
         } else if (seePlayer == true && isGrounded == false && playerController.ballModeOn == false)
         {
             _rigidBody.linearVelocityX = 0;

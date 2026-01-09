@@ -22,10 +22,10 @@ public class EnemyBuhoController : MonoBehaviour
     [SerializeField] private float acceleration;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
-
+    private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
         _rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
         _rigidBody.linearVelocityX = velocity;
@@ -33,6 +33,7 @@ public class EnemyBuhoController : MonoBehaviour
         _upRange = new Vector3(transform.position.x + patrolRange, transform.position.y , transform.position.z);
         _downRange = new Vector3(transform.position.x - patrolRange, transform.position.y, transform.position.z);
         transform.rotation = Quaternion.identity;
+        animator = GetComponent<Animator>();
     }
     public void Init(GameObject player)
     {
@@ -89,9 +90,14 @@ public class EnemyBuhoController : MonoBehaviour
             if (transform.position.x > _downRange.x && transform.position.x < _upRange.x)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, acceleration * Time.deltaTime);
+                animator.SetBool("isAttacking", true);
                 needReturn = true;
             }
             
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 
