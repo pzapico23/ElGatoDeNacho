@@ -124,33 +124,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2811322420000446323, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
   m_PrefabInstance: {fileID: 2102241116751788709}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &83660691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5759419789641422888, guid: 90b586e057bb406479132481e41565c0, type: 3}
-  m_PrefabInstance: {fileID: 1172402558}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &83660699
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83660691}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2d9c0dfd6004b74ea843d61bbe8645d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &99847704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7034684556946790941, guid: 595b8f5fd27c7d641908eed6d3462c87, type: 3}
@@ -714,46 +687,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1964885572}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_Size.x
-      value: 3.9090538
-      objectReference: {fileID: 0}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_Size.y
-      value: 4.5214515
-      objectReference: {fileID: 0}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.03826523
-      objectReference: {fileID: 0}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.00000071525574
-      objectReference: {fileID: 0}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.4700003
-      objectReference: {fileID: 0}
-    - target: {fileID: 975478607259097851, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.09
-      objectReference: {fileID: 0}
     - target: {fileID: 1299720690470120057, guid: 90b586e057bb406479132481e41565c0, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 581872960}
-    - target: {fileID: 2634044167279669847, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -490704229142274322, guid: 3f8acb06836f3b74a9e035830d4de33d, type: 3}
-    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2880455564206191574, guid: 90b586e057bb406479132481e41565c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51.822727
@@ -801,10 +738,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5759419789641422888, guid: 90b586e057bb406479132481e41565c0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 83660699}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b586e057bb406479132481e41565c0, type: 3}
 --- !u!114 &1255856762 stripped
 MonoBehaviour:
@@ -1293,11 +1227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3749321513446666098, guid: 47a7d1a47eb43d244a6811b5691d8ced, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.72
+      value: -43.93
       objectReference: {fileID: 0}
     - target: {fileID: 3749321513446666098, guid: 47a7d1a47eb43d244a6811b5691d8ced, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.11
+      value: -6.93
       objectReference: {fileID: 0}
     - target: {fileID: 3749321513446666098, guid: 47a7d1a47eb43d244a6811b5691d8ced, type: 3}
       propertyPath: m_LocalPosition.z
