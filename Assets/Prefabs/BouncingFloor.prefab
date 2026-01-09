@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3749321513446666098}
   - component: {fileID: 9138274623048036637}
   - component: {fileID: 2909535276515596522}
+  - component: {fileID: 7962376589881669016}
   - component: {fileID: 6480348403752744688}
   - component: {fileID: 4260137675992721321}
   - component: {fileID: 3339678849918474856}
@@ -108,6 +109,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BouncePlatform
   bounceForce: 20
+--- !u!114 &7962376589881669016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705927578950126928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fc2a47468860441958e60ae2dc3174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointGiver
+  minPoints: 100
+  maxPoints: 150
 --- !u!58 &6480348403752744688
 CircleCollider2D:
   m_ObjectHideFlags: 0

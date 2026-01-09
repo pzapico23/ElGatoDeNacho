@@ -86,7 +86,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -181546771
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 778870824764516439, guid: 3f8acb06836f3b74a9e035830d4de33d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,7 +167,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   acceleration: 9
-  velocity: 2.5
+  velocity: 3.5
   player: {fileID: 0}
   playerController: {fileID: 0}
   barValue: 15
