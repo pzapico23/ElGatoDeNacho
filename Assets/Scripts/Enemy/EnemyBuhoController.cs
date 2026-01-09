@@ -25,7 +25,6 @@ public class EnemyBuhoController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private float barValue = 15f;
-    [SerializeField] private float maxAimDistance = 10;
 
     private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

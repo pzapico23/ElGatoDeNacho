@@ -85,7 +85,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4048471262148715505, guid: 91cc3a8b103f9b348b6a81052999af12, type: 3}
   m_Color: {r: 0.46226418, g: 0.03689234, b: 0, a: 1}
@@ -192,6 +192,7 @@ MonoBehaviour:
   acceleration: 7
   player: {fileID: 0}
   playerController: {fileID: 0}
+  barValue: 15
 --- !u!114 &-261984856416820570
 MonoBehaviour:
   m_ObjectHideFlags: 0
