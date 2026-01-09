@@ -22,6 +22,8 @@ public class EnemyBuhoController : MonoBehaviour
     [SerializeField] private float acceleration;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float barValue = 15f;
+
     private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -139,6 +141,8 @@ public class EnemyBuhoController : MonoBehaviour
         {
             if (playerController.ballModeOn == true)
             {
+                Debug.Log("Enemy defeated! Bar value gained: " + barValue);
+                playerController.AddToBallMeter(barValue);
                 health.Kill();
             }
             else if (playerController.ballModeOn == false)

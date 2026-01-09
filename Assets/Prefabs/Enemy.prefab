@@ -169,6 +169,7 @@ MonoBehaviour:
   velocity: 2.5
   player: {fileID: 0}
   playerController: {fileID: 0}
+  barValue: 15
 --- !u!50 &4490851865561864424
 Rigidbody2D:
   serializedVersion: 5
@@ -246,3 +247,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6716878506397055634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759419789641422888}
+  m_Enabled: 1
+  minPoints: 150
+  maxPoints: 500

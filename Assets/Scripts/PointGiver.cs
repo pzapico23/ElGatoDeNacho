@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PointGiver : MonoBehaviour
 {
-    [SerializeField] private float points;
+    [SerializeField] private float minPoints = 150f;
+    [SerializeField] private float maxPoints = 500f;
 
-    public float pointsGiven
+    public int Points
     {
-        get { return points; }
-        private set { points = value; }
+        get { return Mathf.RoundToInt(Random.Range(minPoints, maxPoints)); }
     }
 }

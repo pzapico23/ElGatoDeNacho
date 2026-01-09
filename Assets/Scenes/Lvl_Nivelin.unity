@@ -2067,6 +2067,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68eada9d919b85d4b99263778f8fbeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartsUI
+--- !u!223 &1110522283 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5950947739400828436, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+  m_PrefabInstance: {fileID: 1110522280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1147718547 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4585224934410888731, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
@@ -2409,6 +2414,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1147718547}
     - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 1110522283}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: ballModeBar
       value: 
       objectReference: {fileID: 1110522281}
@@ -2420,6 +2429,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 559539396}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: scorePopupPrefab
+      value: 
+      objectReference: {fileID: 1641280667165759862, guid: eaf19b5386600aa4384896508cb3a744, type: 3}
     - target: {fileID: 7319701275232038631, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -218,8 +218,19 @@ namespace Player
 
                 if (collision.gameObject.GetComponent<PointGiver>())
                 {
-                    gameManager.addPoints(collision.gameObject.GetComponent<PointGiver>().pointsGiven);
+                    int points = collision.gameObject.GetComponent<PointGiver>().Points;
+                    gameManager.addPoints(points);
+                    gameManager.ShowScorePopup(collision.contacts[0].point, points);
                 }
+            }
+        }
+
+        public void AddToBallMeter(float amount)
+        {
+            currentBallMeter += amount;
+            if (currentBallMeter > maxBallMeter)
+            {
+                currentBallMeter = maxBallMeter;
             }
         }
     }

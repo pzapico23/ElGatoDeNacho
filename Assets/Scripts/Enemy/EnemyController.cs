@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float velocity;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float barValue = 15f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -102,6 +103,8 @@ public class EnemyController : MonoBehaviour
         {
             if (playerController.ballModeOn == true)
             {
+                Debug.Log("Enemy defeated! Bar value gained: " + barValue);
+                playerController.AddToBallMeter(barValue);
                 health.Kill();
             } else if (playerController.ballModeOn == false)
             {

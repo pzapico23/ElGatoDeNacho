@@ -1140,6 +1140,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+--- !u!223 &2102241116751788710 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5950947739400828436, guid: 69778168be67d9c4c873a018b66f6b0c, type: 3}
+  m_PrefabInstance: {fileID: 2102241116751788709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3832447419601805749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1388,6 +1393,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1255856762}
     - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 2102241116751788710}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: ballModeBar
       value: 
       objectReference: {fileID: 55351492}
@@ -1399,6 +1408,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1964885572}
+    - target: {fileID: 6840651195927721960, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
+      propertyPath: scorePopupPrefab
+      value: 
+      objectReference: {fileID: 1641280667165759862, guid: eaf19b5386600aa4384896508cb3a744, type: 3}
     - target: {fileID: 7319701275232038631, guid: 221bfc5071a283248918ef5d5ac44ba7, type: 3}
       propertyPath: m_Name
       value: GameManager

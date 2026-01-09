@@ -7,15 +7,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreGUI;
     [SerializeField] private Player.PlayerController playerController;
     [SerializeField] private RectTransform ballModeBar;
-    [SerializeField] private HeartsUI heartsUI;
     [SerializeField] private Player.Health playerHealth;
+    [SerializeField] private GameObject scorePopupPrefab;
+    [SerializeField] private Canvas gameCanvas;
 
     private Transform currentSpawnPoint;
     private Vector3 lastGroundPosition;
-    private float points = 0;
+    private int points = 0;
+    private HeartsUI heartsUI;
 
     void Start()
     {
+        heartsUI = gameCanvas.GetComponent<HeartsUI>();
         if (heartsUI && playerHealth)
         {
             heartsUI.InitalizeHearts(playerHealth.MaxHearts);
@@ -54,8 +57,37 @@ public class GameManager : MonoBehaviour
         set { lastGroundPosition = value; }
     }
 
-    public void addPoints(float points)
+    public void addPoints(int points)
     {
         this.points += points;
+    }
+
+    public void ShowScorePopup(Vector3 worldPosition, int score)
+    {
+        if (scorePopupPrefab != null && gameCanvas != null)
+        {
+            GameObject popup = Instantiate(scorePopupPrefab, gameCanvas.transform);
+            RectTransform popUpRect = popup.GetComponent<RectTransform>();
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+
+            Vector2 localPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                gameCanvas.GetComponent<RectTransform>(),
+                screenPosition,
+                Camera.main,
+                out localPosition
+            );
+
+            popUpRect.anchoredPosition = localPosition;
+            
+            ScorePopup scorePopup = popup.GetComponent<ScorePopup>();
+            if (scorePopup != null)
+            {
+                scorePopup.SetScore(score);
+            }
+
+            Debug.Log($"Popup - World: {worldPosition}, Screen: {screenPosition}, Local: {localPosition}");
+
+        }
     }
 }

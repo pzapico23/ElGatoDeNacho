@@ -20,6 +20,7 @@ public class EnemyControllerKamikaze : MonoBehaviour
     [SerializeField] private float velocity;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float barValue = 30f;
 
     private Animator animator;
 
@@ -100,6 +101,8 @@ public class EnemyControllerKamikaze : MonoBehaviour
         {
             if (playerController.ballModeOn == true)
             {
+                Debug.Log("Enemy defeated! Bar value gained: " + barValue);
+                playerController.AddToBallMeter(barValue);
                 health.Kill();
             } else if (playerController.ballModeOn == false)
             {
