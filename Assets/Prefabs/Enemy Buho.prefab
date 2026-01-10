@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -261984856416820570}
   - component: {fileID: 1624020266898460641}
   - component: {fileID: 7453361121731938374}
+  - component: {fileID: -811192216505806709}
   m_Layer: 0
   m_Name: Enemy Buho
   m_TagString: Enemy
@@ -243,3 +244,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-811192216505806709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759419789641422888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fc2a47468860441958e60ae2dc3174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointGiver
+  minPoints: 300
+  maxPoints: 1000
